@@ -74,21 +74,21 @@ class App extends Component {
             </header>
             <Form
                 currentBeers={this.state.currentBeers}
-                currentBeers={this.state.currentFoods}
-                currentBeers={this.state.currentCoffees}
-                currentBeers={this.state.currentWines}
+                currentFoods{this.state.currentFoods}
+                currentCoffees={this.state.currentCoffees}
+                currentWines={this.state.currentWines}
             />
             <Favorites
                 currentBeers={this.state.currentBeers}
-                currentBeers={this.state.currentFoods}
-                currentBeers={this.state.currentCoffees}
-                currentBeers={this.state.currentWines}
+                currentFoods={this.state.currentFoods}
+                currentCoffees={this.state.currentCoffees}
+                currentWines={this.state.currentWines}
             />
             <Categories
                 currentBeers={this.state.currentBeers}
-                currentBeers={this.state.currentFoods}
-                currentBeers={this.state.currentCoffees}
-                currentBeers={this.state.currentWines}
+                currentFoods={this.state.currentFoods}
+                currentCoffees={this.state.currentCoffees}
+                currentWines={this.state.currentWines}
             />
           </div>
         );
