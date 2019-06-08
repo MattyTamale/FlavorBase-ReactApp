@@ -20,14 +20,19 @@ class Form extends Component{
          e.preventDefault()
          const newEntry = {
             date: this.state.date,
-            brand: this.state.artist,
+            brand: this.state.brand,
             origin: this.state.origin,
             location: this.state.location,
             rating: this.state.rating,
             favorite: this.state.favorite,
             flavors: this.state.flavors
             }
+          console.log(this.state.currentArray);
           this.hideForm();
+          // let prevArray = prevArray.push(newEntry)
+          this.setState(prevArray => ({
+              currentArray: prevArray.currentArray.push(newEntry)
+          }))
     }
 
     handleChange = (e) => {
@@ -39,20 +44,16 @@ class Form extends Component{
        this.setState({
           showForm: true
        })
-       console.log(this.state.currentArray);
+       // console.log(this.state.currentArray);
     }
     hideForm = () => {
        this.setState({
           showForm: false
        })
-       console.log(this.state.currentArray);
     }
 
     handleCategory = (e) => {
         let newArray = null
-        this.setState({
-            currentArray: newArray
-        })
         if (e.target.id === "beer"){
             let newArray = this.props.currentBeers
             this.setState({
@@ -75,7 +76,8 @@ class Form extends Component{
             })
         }
         this.handleForm();
-        console.log(e.target.id);
+        // console.log(e.target.id);
+
     }
 
     clearForm = () => {
@@ -113,13 +115,6 @@ class Form extends Component{
           { this.state.showForm ?
             <div className="form" onSubmit={this.handleSubmit}>
                    <form>
-                        <input
-                         type='text'
-                         id='category'
-                         placeholder="Category"
-                         onChange={this.handleChange}
-                         value={this.state.category}
-                         />
                         <input
                           id='date'
                           type='text'
