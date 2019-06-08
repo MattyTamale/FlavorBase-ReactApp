@@ -74,7 +74,7 @@ class App extends Component {
             </header>
             <Form
                 currentBeers={this.state.currentBeers}
-                currentFoods{this.state.currentFoods}
+                currentFoods={this.state.currentFoods}
                 currentCoffees={this.state.currentCoffees}
                 currentWines={this.state.currentWines}
             />
