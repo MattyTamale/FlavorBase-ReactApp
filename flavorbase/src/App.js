@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Categories from './components/Categories.js';
+import Form from './components/Form.js';
+import Favorites from './components/Favorites.js';
+
 
 class App extends Component {
     constructor(props){
@@ -68,70 +72,24 @@ class App extends Component {
             <header className="App-header">
                 <h1> FlavorBase </h1>
             </header>
-            <div>
-                <h1>Beers: </h1>
-                {this.state.currentBeers
-                    ? this.state.currentBeers.map((beer, index) => {
-                        return <ul key={index}>
-                            <li>{beer.date}</li>
-                            <li>{beer.brand}</li>
-                            <li>{beer.origin}</li>
-                            <li>{beer.location}</li>
-                            <li>{beer.rating}</li>
-                            <li>{beer.favorite}</li>
-                            <li>{beer.flavors}</li>
-                        </ul>
-                    })
-                    : 'test'}
-            </div>
-            <div>
-                <h1>Coffees: </h1>
-                {this.state.currentCoffees
-                    ? this.state.currentCoffees.map((coffee, index) => {
-                        return <ul key={index}>
-                            <li>{coffee.date}</li>
-                            <li>{coffee.brand}</li>
-                            <li>{coffee.origin}</li>
-                            <li>{coffee.location}</li>
-                            <li>{coffee.rating}</li>
-                            <li>{coffee.favorite}</li>
-                            <li>{coffee.flavors}</li>
-                        </ul>
-                    })
-                    : 'test'}
-            </div>
-            <div>
-                <h1>Foods: </h1>
-                {this.state.currentFoods
-                    ? this.state.currentFoods.map((food, index) => {
-                        return <ul key={index}>
-                            <li>{food.date}</li>
-                            <li>{food.brand}</li>
-                            <li>{food.origin}</li>
-                            <li>{food.location}</li>
-                            <li>{food.rating}</li>
-                            <li>{food.favorite}</li>
-                            <li>{food.flavors}</li>
-                        </ul>
-                    })
-                    : 'test'}
-            </div>
-            <div>
-                <h1>Wines: </h1>
-                {this.state.currentWines
-                    ? this.state.currentWines.map((wine, index) => {
-                        return <ul key={index}>
-                            <li>{wine.date}</li>
-                            <li>{wine.brand}</li>
-                            <li>{wine.origin}</li>
-                            <li>{wine.location}</li>
-                            <li>{wine.rating}</li>
-                            <li>{wine.favorite}</li>
-                            <li>{wine.flavors}</li>
-                        </ul>
-                    })
-                    : 'test'}
-            </div>
+            <Form
+                currentBeers={this.state.currentBeers}
+                currentBeers={this.state.currentFoods}
+                currentBeers={this.state.currentCoffees}
+                currentBeers={this.state.currentWines}
+            />
+            <Favorites
+                currentBeers={this.state.currentBeers}
+                currentBeers={this.state.currentFoods}
+                currentBeers={this.state.currentCoffees}
+                currentBeers={this.state.currentWines}
+            />
+            <Categories
+                currentBeers={this.state.currentBeers}
+                currentBeers={this.state.currentFoods}
+                currentBeers={this.state.currentCoffees}
+                currentBeers={this.state.currentWines}
+            />
           </div>
         );
     }
