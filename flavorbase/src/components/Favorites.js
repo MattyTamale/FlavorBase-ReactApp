@@ -10,14 +10,19 @@ class Favorites extends Component{
         }
     }
     toggleFav = (e) => {
-       this.setState({
-         [e.target.id]: e.target.value
-       })
+        this.setState(prevState => ({
+            favorites: !prevState.showFaves
+        }))
+    }
+    handleRemove = (index) => {
+        this.setState(prevArray => ({
+            favorites: prevArray.favorites.splice(index)
+        }))
     }
     render () {
       return (
         <div className="favorites" >
-            <button onClick={this.state.toggleFav}>Favorites</button>
+            <button onClick={this.state.toggleFav}>Favorites {this.state.faves}</button>
               {this.state.showFaves
                   ? this.state.favorites.map((fav, index) => {
                       return <div>
