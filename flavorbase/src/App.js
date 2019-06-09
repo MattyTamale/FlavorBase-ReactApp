@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Categories from './components/Categories.js';
 import Form from './components/Form.js';
 import Favorites from './components/Favorites.js';
+import './App.css';
 
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
             currentCoffees: [],
             currentFoods: [],
             currentWines: [],
+            favorites: [],
             date: '',
             brand: '',
             origin: '',
