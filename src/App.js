@@ -5,7 +5,7 @@ import Favorites from './components/Favorites.js';
 import './App.css';
 
 //DEV BRANCH SETUP
-
+// commented out change
 class App extends Component {
     constructor(props){
         super(props)
