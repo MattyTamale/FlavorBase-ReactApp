@@ -18,6 +18,7 @@ class Categories extends Component {
                                     arrayIndex={index}
                                     currentBeers={this.props.currentBeers}
                                     handleBeerDelete={this.props.handleBeerDelete}
+                                    handleFavorites={this.props.handleFavorites}
                                 />
                             )
                         })}
@@ -32,6 +33,7 @@ class Categories extends Component {
                                     arrayIndex={index}
                                     currentFoods={this.props.currentFoods}
                                     handleFoodDelete={this.props.handleFoodDelete}
+                                    handleFavorites={this.props.handleFavorites}
                                 />
                             )
                         })}
@@ -46,6 +48,7 @@ class Categories extends Component {
                             arrayIndex={index}
                             currentCoffees={this.props.currentCoffees}
                             handleCoffeeDelete={this.props.handleCoffeeDelete}
+                            handleFavorites={this.props.handleFavorites}
                         />
                             )
                         })}
@@ -60,6 +63,7 @@ class Categories extends Component {
                                     arrayIndex={index}
                                     currentWines={this.props.currentWines}
                                     handleWineDelete={this.props.handleWineDelete}
+                                    handleFavorites={this.props.handleFavorites}
                                 />
                             )
                         })}

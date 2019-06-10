@@ -27,7 +27,8 @@ class Beer extends Component {
                         <li>{this.props.beer.favorite}</li>
                         <li>{this.props.beer.flavors}</li>
                         <button onClick={() => {this.props.handleBeerDelete(this.props.beer.entry_id, this.props.arrayIndex, this.props.currentBeers)}}>DELETE</button>
-                    </ul>    
+                        <button onClick={() => {this.props.handleFavorites(this.props.beer)}}>ADD to Faves</button>
+                    </ul>
                 : ''
                 }
             </div>

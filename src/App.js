@@ -42,6 +42,7 @@ class App extends Component {
         this.handleCreateCoffee = this.handleCreateCoffee.bind(this);
         this.handleCreateWine = this.handleCreateWine.bind(this);
         this.removeFromArray = this.removeFromArray.bind(this);
+        this.handleFavorites = this.handleFavorites.bind(this);
     }
 
     handleCreate(formState){
@@ -72,7 +73,33 @@ class App extends Component {
          this.updateFavorites(favEntry)
          // console.log(newEntry.favorite);
     }
-
+    handleFaves(){
+      this.setState(prevState => {
+          let len = prevState.favArray.length
+          return {
+              faves: len
+              }
+          })
+    }
+    handleFavorites(entry){
+      this.setState(prevState => {
+          console.log("this is prevState:", prevState.favArray);
+          prevState.favArray.push(entry)
+          return {
+              favArray: prevState.favArray
+              }
+          })
+          this.handleFaves()
+    }
+    // removeFromFaves () {
+    //   this.setState(prevState => {
+    //       console.log("this is prevState:", prevState.favArray);
+    //       prevState.favArray.splice(arrayIndex, 1)
+    //       return {
+    //           favArray: prevState.currentArray
+    //           }
+    //       })
+    // }
     //=================
     // CREATE METHODS
     //================
@@ -96,6 +123,7 @@ class App extends Component {
             }).then( jData => {
                 this.updateBeerArray(jData, 'currentBeers')
             }).catch( err => console.log(err));
+            this.handleFaves()
     }
 
     handleCreateFood(food) {
@@ -119,6 +147,7 @@ class App extends Component {
         }).then( jData => {
             this.updateFoodArray(jData, 'currentFoods')
         }).catch( err => console.log(err));
+        this.handleFaves()
     }
 
     handleCreateCoffee(coffee) {
@@ -141,6 +170,7 @@ class App extends Component {
         }).then( jData => {
             this.updateCoffeeArray(jData, 'currentCoffees')
         }).catch( err => console.log(err));
+        this.handleFaves()
     }
 
     handleCreateWine(wine) {
@@ -163,6 +193,7 @@ class App extends Component {
         }).then( jData => {
             this.updateWineArray(jData, 'currentWines')
         }).catch( err => console.log(err));
+        this.handleFaves()
     }
 
     removeFromArray(array, arrayIndex){
@@ -380,6 +411,7 @@ class App extends Component {
                 handleFoodDelete={this.handleFoodDelete}
                 handleCoffeeDelete={this.handleCoffeeDelete}
                 handleWineDelete={this.handleWineDelete}
+                handleFavorites={this.handleFavorites}
             />
           </div>
         );

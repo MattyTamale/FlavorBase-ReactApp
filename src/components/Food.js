@@ -26,6 +26,7 @@ class Food extends Component {
                         <li>{this.props.food.favorite}</li>
                         <li>{this.props.food.flavors}</li>
                         <button onClick={() => {this.props.handleFoodDelete(this.props.food.entry_id, this.props.arrayIndex, this.props.currentFoods)}}>DELETE</button>
+                        <button onClick={() => {this.props.handleFavorites(this.props.food)}}>ADD to Faves</button>
                     </ul>
                 : ''
                 }
