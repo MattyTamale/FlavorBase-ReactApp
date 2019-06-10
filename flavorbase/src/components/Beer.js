@@ -12,7 +12,7 @@ class Beer extends Component {
                     <li>{this.props.beer.rating}</li>
                     <li>{this.props.beer.favorite}</li>
                     <li>{this.props.beer.flavors}</li>
-                    <button onClick={() => {this.props.handleDelete(this.props.beer.entry_id, this.props.arrayIndex, this.props.currentBeers)}}>DELETE</button>
+                    <button onClick={() => {this.props.handleBeerDelete(this.props.beer.entry_id, this.props.arrayIndex, this.props.currentBeers)}}>DELETE</button>
                 </ul>
             </div>
         )

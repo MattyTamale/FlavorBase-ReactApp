@@ -31,7 +31,10 @@ class App extends Component {
         this.fetchCoffees = this.fetchCoffees.bind(this);
         this.fetchWines = this.fetchWines.bind(this);
         this.handleCreate = this.handleCreate.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
+        this.handleBeerDelete = this.handleBeerDelete.bind(this);
+        this.handleCoffeeDelete = this.handleCoffeeDelete.bind(this);
+        this.handleFoodDelete = this.handleFoodDelete.bind(this);
+        this.handleWineDelete = this.handleWineDelete.bind(this);
         this.updateArray = this.updateArray.bind(this);
         this.updateFavorites = this.updateFavorites.bind(this);
         this.handleCreateBeer = this.handleCreateBeer.bind(this);
@@ -70,19 +73,22 @@ class App extends Component {
          // console.log(newEntry.favorite);
     }
 
+    //=================
+    // CREATE METHODS
+    //================
     handleCreateBeer(beer) {
-    fetch('http://localhost:3000/beers', {
-        body: JSON.stringify(beer),
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-        }
-        }).then( createdBeer => {
-            return createdBeer.json()
-        }).then( jData => {
-            this.updateBeerArray(jData, 'currentBeers')
-        }).catch( err => console.log(err));
+        fetch('http://localhost:3000/beers', {
+            body: JSON.stringify(beer),
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+            }).then( createdBeer => {
+                return createdBeer.json()
+            }).then( jData => {
+                this.updateBeerArray(jData, 'currentBeers')
+            }).catch( err => console.log(err));
     }
 
     handleCreateFood(food) {
@@ -126,7 +132,7 @@ class App extends Component {
         }).then( createdWine => {
             return createdWine.json()
         }).then( jData => {
-            this.updateWineArray(jData, 'currentWine')
+            this.updateWineArray(jData, 'currentWines')
         }).catch( err => console.log(err));
     }
 
@@ -141,18 +147,60 @@ class App extends Component {
         })
     }
 
-    //delete an item
-    handleDelete(beerId, arrayIndex, currentArray){
+    //===================
+    // DELETE METHODS
+    // ==================
+    handleBeerDelete(beerId, arrayIndex, currentArray){
         console.log('this is delete', beerId, arrayIndex, currentArray);
         fetch(`http://localhost:3000/beers/${beerId}`, {
             method: 'DELETE'
         })
         .then(data => {
-            this.removeFromArray(currentArray, arrayIndex)
+            console.log("It's been deleted, trust me");
+            // this.removeFromArray(currentArray, arrayIndex)
         }).catch( err => console.log('this is error from handleDelete:', err))
         //update state but only after we set up a delete route
     }
 
+    handleFoodDelete(foodId, arrayIndex, currentArray){
+        console.log('this is delete', foodId, arrayIndex, currentArray);
+        fetch(`http://localhost:3000/foods/${foodId}`, {
+            method: 'DELETE'
+        })
+        .then(data => {
+            console.log("It's been deleted, trust me");
+            // this.removeFromArray(currentArray, arrayIndex)
+        }).catch( err => console.log('this is error from handleDelete:', err))
+        //update state but only after we set up a delete route
+    }
+
+    handleCoffeeDelete(coffeeId, arrayIndex, currentArray){
+        console.log('this is delete', coffeeId, arrayIndex, currentArray);
+        fetch(`http://localhost:3000/coffees/${coffeeId}`, {
+            method: 'DELETE'
+        })
+        .then(data => {
+            console.log("It's been deleted, trust me");
+            // this.removeFromArray(currentArray, arrayIndex)
+        }).catch( err => console.log('this is error from handleDelete:', err))
+        //update state but only after we set up a delete route
+    }
+
+    handleWineDelete(wineId, arrayIndex, currentArray){
+        console.log('this is wine delete', wineId, arrayIndex, currentArray);
+        fetch(`http://localhost:3000/wines/${wineId}`, {
+            method: 'DELETE'
+        })
+        .then(data => {
+            console.log("It's been deleted, trust me");
+            // this.removeFromArray(currentArray, arrayIndex)
+        }).catch( err => console.log('this is error from handleDelete:', err))
+        //update state but only after we set up a delete route
+    }
+
+    //====================
+    // ADDITIONAL METHODS
+    //====================
     updateFavorites(favEntry){
       console.log(favEntry);
       if (favEntry.favorite === true){
@@ -207,6 +255,9 @@ class App extends Component {
         })
     }
 
+    //===============
+    // FETCH METHODS
+    //===============
     fetchBeers() {
         fetch('http://localhost:3000/beers')
             .then(data => data.json())
@@ -286,7 +337,10 @@ class App extends Component {
                 currentFoods={this.state.currentFoods}
                 currentCoffees={this.state.currentCoffees}
                 currentWines={this.state.currentWines}
-                handleDelete={this.handleDelete}
+                handleBeerDelete={this.handleBeerDelete}
+                handleFoodDelete={this.handleFoodDelete}
+                handleCoffeeDelete={this.handleCoffeeDelete}
+                handleWineDelete={this.handleWineDelete}
             />
           </div>
         );

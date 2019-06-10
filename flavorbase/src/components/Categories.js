@@ -8,6 +8,7 @@ class Categories extends Component {
     render(){
         return (
             <div>
+            <h1>Beers: </h1>
             {this.props.currentBeers.map((beer, index) => {
                         return (
                             <Beer
@@ -15,19 +16,47 @@ class Categories extends Component {
                                 beer={beer}
                                 arrayIndex={index}
                                 currentBeers={this.props.currentBeers}
-                                handleDelete={this.props.handleDelete}
+                                handleBeerDelete={this.props.handleBeerDelete}
                             />
                         )
                     })}
-                <Coffee
-                    currentCoffees={this.props.currentCoffees}
-                />
-                <Wine
-                    currentWines={this.props.currentWines}
-                />
-                <Food
-                    currentFoods={this.props.currentFoods}
-                />
+            <h1>Foods: </h1>
+            {this.props.currentFoods.map((food, index) => {
+                        return (
+                            <Food
+                                key={index}
+                                food={food}
+                                arrayIndex={index}
+                                currentFoods={this.props.currentFoods}
+                                handleFoodDelete={this.props.handleFoodDelete}
+                            />
+                        )
+                    })}
+            <h1>Coffees: </h1>
+            {this.props.currentCoffees.map((coffee, index) => {
+                return (
+                    <Coffee
+                        key={index}
+                        coffee={coffee}
+                        arrayIndex={index}
+                        currentCoffees={this.props.currentCoffees}
+                        handleCoffeeDelete={this.props.handleCoffeeDelete}
+                    />
+                        )
+                    })}
+            <h1>Wines: </h1>
+            {this.props.currentWines.map((wine, index) => {
+                        return (
+                            <Wine
+                                key={index}
+                                wine={wine}
+                                arrayIndex={index}
+                                currentWines={this.props.currentWines}
+                                handleWineDelete={this.props.handleWineDelete}
+                            />
+                        )
+                    })}
+
             </div>
         )
     }
@@ -38,4 +67,14 @@ class Categories extends Component {
 //     currentBeers={this.props.currentBeers}
 //     handleDelete={this.props.handleDelete}
 // />
+// <Coffee
+//     currentCoffees={this.props.currentCoffees}
+// />
+// <Wine
+//     currentWines={this.props.currentWines}
+// />
+// <Food
+//     currentFoods={this.props.currentFoods}
+// />
+
 export default Categories;

@@ -4,20 +4,16 @@ class Wine extends Component {
     render() {
         return (
             <div>
-                <h1>Wines: </h1>
-                {this.props.currentWines
-                    ? this.props.currentWines.map((wine, index) => {
-                        return <ul key={index}>
-                            <li>{wine.date}</li>
-                            <li>{wine.brand}</li>
-                            <li>{wine.origin}</li>
-                            <li>{wine.location}</li>
-                            <li>{wine.rating}</li>
-                            <li>{wine.favorite}</li>
-                            <li>{wine.flavors}</li>
-                        </ul>
-                    })
-                    : 'test'}
+                <ul>
+                    <li>{this.props.wine.date}</li>
+                    <li>{this.props.wine.brand}</li>
+                    <li>{this.props.wine.origin}</li>
+                    <li>{this.props.wine.location}</li>
+                    <li>{this.props.wine.rating}</li>
+                    <li>{this.props.wine.favorite}</li>
+                    <li>{this.props.wine.flavors}</li>
+                    <button onClick={() => {this.props.handleWineDelete(this.props.wine.entry_id, this.props.arrayIndex, this.props.currentWines)}}>DELETE</button>
+                </ul>
             </div>
         )
     }

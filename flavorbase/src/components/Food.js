@@ -4,20 +4,16 @@ class Food extends Component {
     render() {
         return (
             <div>
-                <h1>Foods: </h1>
-                {this.props.currentFoods
-                    ? this.props.currentFoods.map((food, index) => {
-                        return <ul key={index}>
-                            <li>{food.date}</li>
-                            <li>{food.brand}</li>
-                            <li>{food.origin}</li>
-                            <li>{food.location}</li>
-                            <li>{food.rating}</li>
-                            <li>{food.favorite}</li>
-                            <li>{food.flavors}</li>
-                        </ul>
-                    })
-                    : 'test'}
+                <ul>
+                    <li>{this.props.food.date}</li>
+                    <li>{this.props.food.brand}</li>
+                    <li>{this.props.food.origin}</li>
+                    <li>{this.props.food.location}</li>
+                    <li>{this.props.food.rating}</li>
+                    <li>{this.props.food.favorite}</li>
+                    <li>{this.props.food.flavors}</li>
+                    <button onClick={() => {this.props.handleFoodDelete(this.props.food.entry_id, this.props.arrayIndex, this.props.currentFoods)}}>DELETE</button>
+                </ul>
             </div>
         )
     }

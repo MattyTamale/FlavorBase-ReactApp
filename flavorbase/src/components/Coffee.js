@@ -4,20 +4,16 @@ class Coffee extends Component {
     render() {
         return (
             <div>
-                <h1>Coffees: </h1>
-                {this.props.currentCoffees
-                    ? this.props.currentCoffees.map((coffee, index) => {
-                        return <ul key={index}>
-                            <li>{coffee.date}</li>
-                            <li>{coffee.brand}</li>
-                            <li>{coffee.origin}</li>
-                            <li>{coffee.location}</li>
-                            <li>{coffee.rating}</li>
-                            <li>{coffee.favorite}</li>
-                            <li>{coffee.flavors}</li>
-                        </ul>
-                    })
-                    : 'test'}
+                <ul>
+                    <li>{this.props.coffee.date}</li>
+                    <li>{this.props.coffee.brand}</li>
+                    <li>{this.props.coffee.origin}</li>
+                    <li>{this.props.coffee.location}</li>
+                    <li>{this.props.coffee.rating}</li>
+                    <li>{this.props.coffee.favorite}</li>
+                    <li>{this.props.coffee.flavors}</li>
+                    <button onClick={() => {this.props.handleCoffeeDelete(this.props.coffee.entry_id, this.props.arrayIndex, this.props.currentCoffees)}}>DELETE</button>
+                </ul>
             </div>
         )
     }
