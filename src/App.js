@@ -84,14 +84,16 @@ class App extends Component {
           })
     }
     handleFavorites(entry){
-      this.setState(prevState => {
-          console.log("this is prevState:", prevState.favArray);
-          prevState.favArray.push(entry)
-          return {
-              favArray: prevState.favArray
-              }
-          })
-          this.handleFaves()
+
+          this.setState(prevState => {
+              // console.log("this is prevState:", prevState.favArray);
+              prevState.favArray.push(entry)
+              return {
+                  favArray: prevState.favArray
+                  }
+              })
+              this.handleFaves()
+              entry.favorite = false
     }
     // removeFromFaves () {
     //   this.setState(prevState => {
@@ -106,13 +108,9 @@ class App extends Component {
     // CREATE METHODS
     //================
     handleCreateBeer(beer) {
-        this.setState(prevState => {
-            console.log("this is prevState:", prevState.favArray);
-            prevState.favArray.push(beer)
-            return {
-                favArray: prevState.favArray
-                }
-            })
+        if (beer.favorite === true){
+            this.handleFavorites(beer)
+        }
         fetch('http://localhost:3000/beers', {
             body: JSON.stringify(beer),
             method: 'POST',
@@ -130,13 +128,9 @@ class App extends Component {
 
     handleCreateFood(food) {
         console.log(food);
-        this.setState(prevState => {
-            console.log("this is prevState:", prevState.favArray);
-            prevState.favArray.push(food)
-            return {
-                favArray: prevState.favArray
-                }
-            })
+        if (food.favorite === true){
+            this.handleFavorites(food)
+        }
     fetch('http://localhost:3000/foods', {
         body: JSON.stringify(food),
         method: 'POST',
@@ -153,13 +147,9 @@ class App extends Component {
     }
 
     handleCreateCoffee(coffee) {
-      this.setState(prevState => {
-          console.log("this is prevState:", prevState.favArray);
-          prevState.favArray.push(coffee)
-          return {
-              favArray: prevState.favArray
-              }
-          })
+      if (coffee.favorite === true){
+          this.handleFavorites(coffee)
+      }
     fetch('http://localhost:3000/coffees', {
         body: JSON.stringify(coffee),
         method: 'POST',
@@ -176,13 +166,9 @@ class App extends Component {
     }
 
     handleCreateWine(wine) {
-      this.setState(prevState => {
-          console.log("this is prevState:", prevState.favArray);
-          prevState.favArray.push(wine)
-          return {
-              favArray: prevState.favArray
-              }
-          })
+      if (wine.favorite === true){
+          this.handleFavorites(wine)
+      }
     fetch('http://localhost:3000/wines', {
         body: JSON.stringify(wine),
         method: 'POST',
@@ -202,7 +188,7 @@ class App extends Component {
     //UPDATE METHODS
     //================
 
-    handleBeerUpdate(beer, arrayIndex, currentArray){
+    handleBeerUpdate(beer, arrayIndex, currentArray, entry_id){
         console.log("this is beer:", beer);
         this.setState(prevState => {
             console.log("this is prevState:", prevState);
@@ -211,10 +197,10 @@ class App extends Component {
             //     favArray: prevState.favArray
             //     }
             })
-        // this.setState({
-        //     currentArray: currentArray
-        // })
-        fetch(`http://localhost:3000/beers/${beer.entry_id}`, {
+        this.setState({
+            currentArray: currentArray
+        })
+        fetch(`http://localhost:3000/beers/${entry_id}`, {
             body: JSON.stringify(beer),
             method: 'PUT',
             headers: {
@@ -226,9 +212,10 @@ class App extends Component {
         .then(jData => {
             console.log("this is jData", jData);
             this.removeFromArray(currentArray, arrayIndex);
-            this.updatedBeerArray(jData, 'currentBeers');
+            this.updateBeerArray(jData, 'currentBeers');
             })
-        .catch(err => console.log('this is error from handleUpdate', err))
+        .catch(err => console.log('this is error from handleUpdate', err));
+        this.handleFaves()
     }
 
     removeFromArray(array, arrayIndex){
@@ -307,7 +294,7 @@ class App extends Component {
     // ADDITIONAL METHODS
     //====================
     updateFavorites(favEntry){
-      console.log(favEntry);
+      // console.log(favEntry);
       if (favEntry.favorite === true){
         this.setState(dogArray => ({
             randArray: dogArray.randArray.push(favEntry)
@@ -367,16 +354,28 @@ class App extends Component {
         fetch('http://localhost:3000/beers')
             .then(data => data.json())
         .then(jData => {
+          // console.log('jData',jData);
+            jData.forEach((entry, index) => {
+                if (entry.favorite === "t"){
+                      this.handleFavorites(entry)
+                }
+            })
             this.setState({
                 currentBeers: jData
             })
         })
+
     }
 
     fetchCoffees() {
         fetch('http://localhost:3000/coffees')
             .then(data => data.json())
         .then(jData => {
+          jData.forEach((entry, index) => {
+              if (entry.favorite === "t"){
+                    this.handleFavorites(entry)
+              }
+          })
             this.setState({
                 currentCoffees: jData
             })
@@ -388,6 +387,11 @@ class App extends Component {
         fetch('http://localhost:3000/foods')
             .then(data => data.json())
         .then(jData => {
+          jData.forEach((entry, index) => {
+              if (entry.favorite === "t"){
+                    this.handleFavorites(entry)
+              }
+          })
             this.setState({
                 currentFoods: jData
             })
@@ -398,6 +402,11 @@ class App extends Component {
         fetch('http://localhost:3000/wines')
             .then(data => data.json())
         .then(jData => {
+          jData.forEach((entry, index) => {
+              if (entry.favorite === "t"){
+                    this.handleFavorites(entry)
+              }
+          })
             this.setState({
                 currentWines: jData
             })
@@ -436,6 +445,7 @@ class App extends Component {
                 favArray={this.state.favArray}
                 faves={this.state.faves}
                 randArray={this.state.randArray}
+                handleFaves={this.state.handleFaves}
             />
             <Categories
                 currentBeers={this.state.currentBeers}

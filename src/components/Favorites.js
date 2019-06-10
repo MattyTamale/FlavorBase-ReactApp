@@ -11,8 +11,23 @@ class Favorites extends Component{
         this.setState(prevState => ({
             showFaves: !prevState.showFaves
         }))
-        console.log(this.props.favArray);
     }
+    removeFav = (e) => {
+        console.log('this is e.target.id', e.target.id);
+        let newFavorites = this.props.favArray.splice(e.target.id, 1)
+        this.setState(prevState => ({
+            favArray: newFavorites
+        }))
+        // this.props.handleFaves()
+    }
+    // handleFavos = () => {
+    //   this.setState(prevState => {
+    //       let len = this.props.favArray.length
+    //       return {
+    //           faves: len
+    //           }
+    //       })
+    // }
     // handleRemove = (index) => {
     //     this.setState(prevArray => ({
     //         favArray: prevArray.favArray.splice(index)
@@ -24,7 +39,7 @@ class Favorites extends Component{
             <button onClick={this.toggleFav}>Favorites {this.props.faves}</button>
               {this.state.showFaves
                   ? this.props.favArray.map((fav, index) => {
-                      return <div>
+                      return <div key={index}>
                               <ul key={index}>
                                   <li>{fav.date}</li>
                                   <li>{fav.brand}</li>
@@ -33,7 +48,10 @@ class Favorites extends Component{
                                   <li>{fav.rating}</li>
                                   <li>{fav.flavors}</li>
                               </ul>
+                              <button
 
+                              id={index}
+                               onClick={this.removeFav}>Remove</button>
                           </div>
                   })
                   : ''}
@@ -43,3 +61,4 @@ class Favorites extends Component{
 }
 // <button onClick={this.handleRemove(index)}>Remove from Faves</button>
 export default Favorites;
+                              // value={fav.favorite}

@@ -20,7 +20,7 @@ class UpdateForm extends Component{
     handleSubmit = (e) => {
          e.preventDefault()
          if(this.props.currentBeers){
-            this.props.handleBeerUpdate(this.props.beer, this.props.arrayIndex, this.props.currentBeers)
+            this.props.handleBeerUpdate(this.state, this.props.arrayIndex, this.props.currentBeers, this.props.beer.entry_id)
         }else if(this.state.currentCategory === "coffee"){
             this.props.handleCreateCoffee(this.state)
         }else if(this.state.currentCategory === "wine"){

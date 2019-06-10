@@ -162,6 +162,15 @@ class Form extends Component{
                           onChange={this.handleChange}
                           value={this.state.rating}
                         />
+                        <p>Favorite:
+                        <input
+                          onClick={this.handleCheck}
+                          id='favorite'
+                          type='checkbox'
+                          placeholder="Favorite"
+                          value={this.state.favorite}
+                        />
+                        </p>
                         <input
                           onClick={this.handleCheck}
                           id='favorite'
