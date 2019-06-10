@@ -77,6 +77,13 @@ class App extends Component {
     // CREATE METHODS
     //================
     handleCreateBeer(beer) {
+        this.setState(prevState => {
+            console.log("this is prevState:", prevState.favArray);
+            prevState.favArray.push(beer)
+            return {
+                favArray: prevState.favArray
+                }
+            })
         fetch('http://localhost:3000/beers', {
             body: JSON.stringify(beer),
             method: 'POST',
@@ -92,6 +99,14 @@ class App extends Component {
     }
 
     handleCreateFood(food) {
+        console.log(food);
+        this.setState(prevState => {
+            console.log("this is prevState:", prevState.favArray);
+            prevState.favArray.push(food)
+            return {
+                favArray: prevState.favArray
+                }
+            })
     fetch('http://localhost:3000/foods', {
         body: JSON.stringify(food),
         method: 'POST',
@@ -107,6 +122,13 @@ class App extends Component {
     }
 
     handleCreateCoffee(coffee) {
+      this.setState(prevState => {
+          console.log("this is prevState:", prevState.favArray);
+          prevState.favArray.push(coffee)
+          return {
+              favArray: prevState.favArray
+              }
+          })
     fetch('http://localhost:3000/coffees', {
         body: JSON.stringify(coffee),
         method: 'POST',
@@ -122,6 +144,13 @@ class App extends Component {
     }
 
     handleCreateWine(wine) {
+      this.setState(prevState => {
+          console.log("this is prevState:", prevState.favArray);
+          prevState.favArray.push(wine)
+          return {
+              favArray: prevState.favArray
+              }
+          })
     fetch('http://localhost:3000/wines', {
         body: JSON.stringify(wine),
         method: 'POST',
