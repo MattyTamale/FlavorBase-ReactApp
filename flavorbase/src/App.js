@@ -138,11 +138,12 @@ class App extends Component {
 
     removeFromArray(array, arrayIndex){
         console.log(arrayIndex);
-        console.log(array);
+        console.log("this is array:", array);
     this.setState(prevState => {
-        prevState[array].splice(arrayIndex, 1)
+        console.log("this is prevState:", prevState.currentArray);
+        prevState.currentArray.splice(arrayIndex, 1)
         return {
-            [array]: prevState[array]
+            [array]: prevState.currentArray
             }
         })
     }
@@ -151,51 +152,60 @@ class App extends Component {
     // DELETE METHODS
     // ==================
     handleBeerDelete(beerId, arrayIndex, currentArray){
+        this.setState({
+            currentArray: currentArray
+        })
         console.log('this is delete', beerId, arrayIndex, currentArray);
         fetch(`http://localhost:3000/beers/${beerId}`, {
             method: 'DELETE'
         })
         .then(data => {
             console.log("It's been deleted, trust me");
-            // this.removeFromArray(currentArray, arrayIndex)
+            this.removeFromArray(currentArray, arrayIndex)
         }).catch( err => console.log('this is error from handleDelete:', err))
         //update state but only after we set up a delete route
     }
 
     handleFoodDelete(foodId, arrayIndex, currentArray){
+        this.setState({
+            currentArray: currentArray
+        })
         console.log('this is delete', foodId, arrayIndex, currentArray);
         fetch(`http://localhost:3000/foods/${foodId}`, {
             method: 'DELETE'
         })
         .then(data => {
             console.log("It's been deleted, trust me");
-            // this.removeFromArray(currentArray, arrayIndex)
+            this.removeFromArray(currentArray, arrayIndex)
         }).catch( err => console.log('this is error from handleDelete:', err))
-        //update state but only after we set up a delete route
     }
 
     handleCoffeeDelete(coffeeId, arrayIndex, currentArray){
+        this.setState({
+            currentArray: currentArray
+        })
         console.log('this is delete', coffeeId, arrayIndex, currentArray);
         fetch(`http://localhost:3000/coffees/${coffeeId}`, {
             method: 'DELETE'
         })
         .then(data => {
             console.log("It's been deleted, trust me");
-            // this.removeFromArray(currentArray, arrayIndex)
+            this.removeFromArray(currentArray, arrayIndex)
         }).catch( err => console.log('this is error from handleDelete:', err))
-        //update state but only after we set up a delete route
     }
 
     handleWineDelete(wineId, arrayIndex, currentArray){
+        this.setState({
+            currentArray: currentArray
+        })
         console.log('this is wine delete', wineId, arrayIndex, currentArray);
         fetch(`http://localhost:3000/wines/${wineId}`, {
             method: 'DELETE'
         })
         .then(data => {
             console.log("It's been deleted, trust me");
-            // this.removeFromArray(currentArray, arrayIndex)
+            this.removeFromArray(currentArray, arrayIndex)
         }).catch( err => console.log('this is error from handleDelete:', err))
-        //update state but only after we set up a delete route
     }
 
     //====================
