@@ -12,7 +12,8 @@ class Form extends Component{
             favorite: false,
             flavors: '',
             currentArray: null,
-            showForm: false
+            showForm: false,
+            randArray: null
 
         }
     }
@@ -20,6 +21,11 @@ class Form extends Component{
          e.preventDefault()
          this.props.handleCreate(this.state)
          this.hideForm();
+    }
+    setArray = () => {
+        this.setState({
+           randArray: this.props.favArray
+        })
     }
 
     handleChange = (e) => {
@@ -37,6 +43,12 @@ class Form extends Component{
        this.setState({
           showForm: false
        })
+    }
+    handleCheck = () => {
+       this.setState({
+          favorite: !this.state.favorite
+       })
+       this.setArray()
     }
 
     handleCategory = (e) => {
@@ -138,10 +150,10 @@ class Form extends Component{
                           value={this.state.rating}
                         />
                         <input
+                          onClick={this.handleCheck}
                           id='favorite'
-                          type='text'
+                          type='checkbox'
                           placeholder="Favorite"
-                          onChange={this.handleChange}
                           value={this.state.favorite}
                         />
                         <input

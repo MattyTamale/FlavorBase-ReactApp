@@ -13,16 +13,18 @@ class App extends Component {
             currentCoffees: [],
             currentFoods: [],
             currentWines: [],
-            favorites: [],
+            favArray: [],
+            randArray: null,
             date: '',
             brand: '',
             origin: '',
             location: '',
             rating: 0,
-            favorite: false,
+            // favorite: false,
             flavors: '',
             currentArray: null,
-            showForm: false
+            showForm: false,
+            faves: 0
         }
         this.fetchBeers = this.fetchBeers.bind(this);
         this.fetchFoods = this.fetchFoods.bind(this);
@@ -30,10 +32,11 @@ class App extends Component {
         this.fetchWines = this.fetchWines.bind(this);
         this.handleCreate = this.handleCreate.bind(this);
         this.updateArray = this.updateArray.bind(this);
+        this.updateFavorites = this.updateFavorites.bind(this);
     }
 
     handleCreate(formState){
-        const newEntry = {
+        let newEntry = {
            date: formState.date,
            brand: formState.brand,
            origin: formState.origin,
@@ -42,18 +45,40 @@ class App extends Component {
            favorite: formState.favorite,
            flavors: formState.flavors
            }
-         console.log(this.state.currentArray);
-         this.setState({
-             currentArray: formState.currentArray
-         })
-         // let prevArray = prevArray.push(newEntry)
-         this.updateArray(newEntry);
-    }
+        let favEntry = {
+          date: formState.date,
+          brand: formState.brand,
+          origin: formState.origin,
+          location: formState.location,
+          rating: formState.rating,
+          favorite: formState.favorite,
+          flavors: formState.flavors
+          }
 
+         this.setState({
+             currentArray: formState.currentArray,
+             randArray: this.state.favArray
+         })
+         this.updateArray(newEntry);
+         this.updateFavorites(favEntry)
+         // console.log(newEntry.favorite);
+    }
+    updateFavorites(favEntry){
+      console.log(favEntry);
+      if (favEntry.favorite === true){
+        this.setState(dogArray => ({
+            randArray: dogArray.randArray.push(favEntry)
+        }))
+      }
+        // console.log(newEntry);
+    }
     updateArray(newEntry){
+        console.log(this.state.currentArray);
         this.setState(prevArray => ({
             currentArray: prevArray.currentArray.push(newEntry)
         }))
+
+        // console.log(newEntry);
     }
 
     fetchBeers() {
@@ -73,6 +98,7 @@ class App extends Component {
             this.setState({
                 currentCoffees: jData
             })
+            console.log(jData);
         })
     }
 
@@ -121,6 +147,9 @@ class App extends Component {
                 currentFoods={this.state.currentFoods}
                 currentCoffees={this.state.currentCoffees}
                 currentWines={this.state.currentWines}
+                favArray={this.state.favArray}
+                faves={this.state.faves}
+                randArray={this.state.randArray}
             />
             <Categories
                 currentBeers={this.state.currentBeers}
