@@ -8,9 +8,17 @@ class Categories extends Component {
     render(){
         return (
             <div>
-                <Beer
-                    currentBeers={this.props.currentBeers}
-                />
+            {this.props.currentBeers.map((beer, index) => {
+                        return (
+                            <Beer
+                                key={index}
+                                beer={beer}
+                                arrayIndex={index}
+                                currentBeers={this.props.currentBeers}
+                                handleDelete={this.props.handleDelete}
+                            />
+                        )
+                    })}
                 <Coffee
                     currentCoffees={this.props.currentCoffees}
                 />
@@ -25,4 +33,9 @@ class Categories extends Component {
     }
 }
 
+
+// <Beer
+//     currentBeers={this.props.currentBeers}
+//     handleDelete={this.props.handleDelete}
+// />
 export default Categories;

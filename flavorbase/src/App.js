@@ -31,8 +31,14 @@ class App extends Component {
         this.fetchCoffees = this.fetchCoffees.bind(this);
         this.fetchWines = this.fetchWines.bind(this);
         this.handleCreate = this.handleCreate.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         this.updateArray = this.updateArray.bind(this);
         this.updateFavorites = this.updateFavorites.bind(this);
+        this.handleCreateBeer = this.handleCreateBeer.bind(this);
+        this.handleCreateFood = this.handleCreateFood.bind(this);
+        this.handleCreateCoffee = this.handleCreateCoffee.bind(this);
+        this.handleCreateWine = this.handleCreateWine.bind(this);
+        this.removeFromArray = this.removeFromArray.bind(this);
     }
 
     handleCreate(formState){
@@ -63,6 +69,90 @@ class App extends Component {
          this.updateFavorites(favEntry)
          // console.log(newEntry.favorite);
     }
+
+    handleCreateBeer(beer) {
+    fetch('http://localhost:3000/beers', {
+        body: JSON.stringify(beer),
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        }
+        }).then( createdBeer => {
+            return createdBeer.json()
+        }).then( jData => {
+            this.updateBeerArray(jData, 'currentBeers')
+        }).catch( err => console.log(err));
+    }
+
+    handleCreateFood(food) {
+    fetch('http://localhost:3000/foods', {
+        body: JSON.stringify(food),
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        }
+        }).then( createdFood => {
+            return createdFood.json()
+        }).then( jData => {
+            this.updateFoodArray(jData, 'currentFoods')
+        }).catch( err => console.log(err));
+    }
+
+    handleCreateCoffee(coffee) {
+    fetch('http://localhost:3000/coffees', {
+        body: JSON.stringify(coffee),
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        }
+        }).then( createdCoffee => {
+            return createdCoffee.json()
+        }).then( jData => {
+            this.updateCoffeeArray(jData, 'currentCoffees')
+        }).catch( err => console.log(err));
+    }
+
+    handleCreateWine(wine) {
+    fetch('http://localhost:3000/wines', {
+        body: JSON.stringify(wine),
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        }
+        }).then( createdWine => {
+            return createdWine.json()
+        }).then( jData => {
+            this.updateWineArray(jData, 'currentWine')
+        }).catch( err => console.log(err));
+    }
+
+    removeFromArray(array, arrayIndex){
+        console.log(arrayIndex);
+        console.log(array);
+    this.setState(prevState => {
+        prevState[array].splice(arrayIndex, 1)
+        return {
+            [array]: prevState[array]
+            }
+        })
+    }
+
+    //delete an item
+    handleDelete(beerId, arrayIndex, currentArray){
+        console.log('this is delete', beerId, arrayIndex, currentArray);
+        fetch(`http://localhost:3000/beers/${beerId}`, {
+            method: 'DELETE'
+        })
+        .then(data => {
+            this.removeFromArray(currentArray, arrayIndex)
+        }).catch( err => console.log('this is error from handleDelete:', err))
+        //update state but only after we set up a delete route
+    }
+
     updateFavorites(favEntry){
       console.log(favEntry);
       if (favEntry.favorite === true){
@@ -79,6 +169,42 @@ class App extends Component {
         }))
 
         // console.log(newEntry);
+    }
+
+    updateBeerArray(beer, array){
+    this.setState( prevState => {
+        prevState[array].push(beer)
+        return {
+            [array]: prevState[array]
+            }
+        })
+    }
+
+    updateFoodArray(food, array){
+    this.setState( prevState => {
+        prevState[array].push(food)
+        return {
+            [array]: prevState[array]
+            }
+        })
+    }
+
+    updateCoffeeArray(coffee, array){
+    this.setState( prevState => {
+        prevState[array].push(coffee)
+        return {
+            [array]: prevState[array]
+            }
+        })
+    }
+
+    updateWineArray(wine, array){
+    this.setState( prevState => {
+        prevState[array].push(wine)
+        return {
+            [array]: prevState[array]
+            }
+        })
     }
 
     fetchBeers() {
@@ -141,6 +267,10 @@ class App extends Component {
                 currentCoffees={this.state.currentCoffees}
                 currentWines={this.state.currentWines}
                 handleCreate={this.handleCreate}
+                handleCreateBeer={this.handleCreateBeer}
+                handleCreateFood={this.handleCreateFood}
+                handleCreateCoffee={this.handleCreateCoffee}
+                handleCreateWine={this.handleCreateWine}
             />
             <Favorites
                 currentBeers={this.state.currentBeers}
@@ -156,6 +286,7 @@ class App extends Component {
                 currentFoods={this.state.currentFoods}
                 currentCoffees={this.state.currentCoffees}
                 currentWines={this.state.currentWines}
+                handleDelete={this.handleDelete}
             />
           </div>
         );

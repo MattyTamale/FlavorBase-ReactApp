@@ -13,15 +13,25 @@ class Form extends Component{
             flavors: '',
             currentArray: null,
             showForm: false,
-            randArray: null
-
+            randArray: null,
+            currentCategory: ""
         }
     }
     handleSubmit = (e) => {
          e.preventDefault()
-         this.props.handleCreate(this.state)
+         if(this.state.currentCategory === "beer"){
+            this.props.handleCreateBeer(this.state)
+        }else if(this.state.currentCategory === "coffee"){
+            this.props.handleCreateCoffee(this.state)
+        }else if(this.state.currentCategory === "wine"){
+             this.props.handleCreateWine(this.state)
+        }else if(this.state.currentCategory === "food"){
+              this.props.handleCreateFood(this.state)
+        }
+         // this.props.handleCreate(this.state)
          this.hideForm();
     }
+
     setArray = () => {
         this.setState({
            randArray: this.props.favArray
@@ -56,22 +66,26 @@ class Form extends Component{
         if (e.target.id === "beer"){
             let newArray = this.props.currentBeers
             this.setState({
-                currentArray: newArray
+                currentArray: newArray,
+                currentCategory: "beer"
             })
         }else if (e.target.id === "wine"){
             let newArray = this.props.currentWines
             this.setState({
-                currentArray: newArray
+                currentArray: newArray,
+                currentCategory: "wine"
             })
         }else if (e.target.id === "food"){
             let newArray = this.props.currentFoods
             this.setState({
-                currentArray: newArray
+                currentArray: newArray,
+                currentCategory: "food"
             })
         }else if (e.target.id === "coffee"){
             let newArray = this.props.currentCoffees
             this.setState({
-                currentArray: newArray
+                currentArray: newArray,
+                currentCategory: "coffee"
             })
         }
         this.handleForm();
