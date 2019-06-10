@@ -62,7 +62,6 @@ class Form extends Component{
     }
 
     handleCategory = (e) => {
-        let newArray = null
         if (e.target.id === "beer"){
             let newArray = this.props.currentBeers
             this.setState({
