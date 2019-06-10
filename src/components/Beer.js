@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
+import UpdateForm from './UpdateForm.js';
 
 class Beer extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state ={
-            showInfo: false
+            showInfo: false,
+            updateInfo: false,
         }
     }
 
     toggleInfo = (event) => {
         this.setState({
             showInfo: !this.state.showInfo
+        })
+    }
+
+    toggleUpdate = (event) => {
+        this.setState({
+            updateInfo: !this.state.updateInfo
         })
     }
 
@@ -28,6 +36,20 @@ class Beer extends Component {
                         <li>{this.props.beer.flavors}</li>
                         <button onClick={() => {this.props.handleBeerDelete(this.props.beer.entry_id, this.props.arrayIndex, this.props.currentBeers)}}>DELETE</button>
                         <button onClick={() => {this.props.handleFavorites(this.props.beer)}}>ADD to Faves</button>
+                        <button onClick={this.toggleUpdate}>
+                            UPDATE
+                        </button>
+                        {this.state.updateInfo ?
+                            <div >
+                                Form:<UpdateForm
+                                    arrayIndex={this.props.arrayIndex}
+                                    beer={this.props.beer}
+                                    currentBeers={this.props.currentBeers}
+                                    handleBeerUpdate={this.props.handleBeerUpdate}
+                                />
+                            </div>
+                        : ''
+                        }
                     </ul>
                 : ''
                 }
@@ -35,6 +57,9 @@ class Beer extends Component {
         )
     }
 }
+// <button onClick={() => {this.props.handleBeerUpdate(this.props.beer.entry_id, this.props.arrayIndex, this.props.currentBeers)}}>
+//     UPDATE
+// </button>
 
 // <h1>Beers: </h1>
 export default Beer;

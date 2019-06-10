@@ -19,6 +19,7 @@ class Categories extends Component {
                                     currentBeers={this.props.currentBeers}
                                     handleBeerDelete={this.props.handleBeerDelete}
                                     handleFavorites={this.props.handleFavorites}
+                                    handleBeerUpdate={this.props.handleBeerUpdate}
                                 />
                             )
                         })}

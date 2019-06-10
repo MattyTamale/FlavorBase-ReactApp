@@ -44,6 +44,7 @@ class App extends Component {
         this.handleCreateWine = this.handleCreateWine.bind(this);
         this.removeFromArray = this.removeFromArray.bind(this);
         this.handleFavorites = this.handleFavorites.bind(this);
+        this.handleBeerUpdate = this.handleBeerUpdate.bind(this);
     }
 
     handleCreate(formState){
@@ -195,6 +196,39 @@ class App extends Component {
             this.updateWineArray(jData, 'currentWines')
         }).catch( err => console.log(err));
         this.handleFaves()
+    }
+
+    //================
+    //UPDATE METHODS
+    //================
+
+    handleBeerUpdate(beer, arrayIndex, currentArray){
+        console.log("this is beer:", beer);
+        this.setState(prevState => {
+            console.log("this is prevState:", prevState);
+            // prevState.favArray.push(entry)
+            // return {
+            //     favArray: prevState.favArray
+            //     }
+            })
+        // this.setState({
+        //     currentArray: currentArray
+        // })
+        fetch(`http://localhost:3000/beers/${beer.entry_id}`, {
+            body: JSON.stringify(beer),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then( updatedBeer => updatedBeer.json())
+        .then(jData => {
+            console.log("this is jData", jData);
+            this.removeFromArray(currentArray, arrayIndex);
+            this.updatedBeerArray(jData, 'currentBeers');
+            })
+        .catch(err => console.log('this is error from handleUpdate', err))
     }
 
     removeFromArray(array, arrayIndex){
@@ -413,6 +447,7 @@ class App extends Component {
                 handleCoffeeDelete={this.handleCoffeeDelete}
                 handleWineDelete={this.handleWineDelete}
                 handleFavorites={this.handleFavorites}
+                handleBeerUpdate={this.handleBeerUpdate}
             />
           </div>
         );
