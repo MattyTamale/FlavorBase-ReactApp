@@ -120,7 +120,7 @@ class Form extends Component{
                   id="food" className="btn btn-outline-info">Food</button>
               <button
                   onClick={this.handleCategory}
-                  id="coffee" type="button" class="btn btn-outline-secondary">Coffee</button>
+                  id="coffee" type="button" className="btn btn-outline-secondary">Coffee</button>
               <button
                   onClick={this.handleCategory}
                   id="wine" className="btn btn-outline-danger">Wine</button>
