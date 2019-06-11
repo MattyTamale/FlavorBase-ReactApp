@@ -169,23 +169,27 @@ class Form extends Component{
                         />
                         </div>
                         <div className="form-group">
+                        <label>
+                        Rating 1-10</label>
                         <input
                           className="form-control"
+                          max="10"
+                          min="1"
                           id='rating'
-                          type='text'
+                          type='number'
                           placeholder="Rating: 1-10"
                           onChange={this.handleChange}
                           value={this.state.rating}
                         />
                         </div>
                         <div className="form-group form-check">
-                        <h6 className="form-check-label">Favorite:</h6>
+                        <label>Favorite:</label><br/>
                         <input
                           className="form-check-input"
                           onClick={this.handleCheck}
                           id='favorite'
                           type='checkbox'
-                          value={this.state.favorite}
+                          value="favorite"
                         />
                         <br />
                         </div>
