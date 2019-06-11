@@ -10,7 +10,13 @@ header {
 }
 
 .jumbotron {
-    background: RGB(240, 248, 255, 0.5);
+    background: RGB(240, 248, 255, 0.6);
+    color: black;
+    font-weight: bold;
+    padding-bottom: .8em;
+}
+
+.display-4 {
 }
 
 .brandName:hover {
@@ -18,9 +24,9 @@ header {
 }
 
 .catButtons {
-    background: RGB(240, 255, 255, 0.2);
+    background: RGB(240, 255, 255, 0.6);
     border: 1px solid black;
-    border-radius: 15px;
+    border-radius: 8px;
     margin: 2em 10em;
     padding: 1em;
 }
@@ -59,7 +65,13 @@ header {
     flex-wrap: wrap;
     text-align: center;
     justify-content: space-evenly;
+    margin-left: 3em;
+    margin-right: 3em;
     margin-bottom: 3em;
+    padding: 1.5em;
+    background: RGB(240, 248, 255, 0.5);
+    border-radius: 8px;
+
 }
 
 .category {
@@ -87,14 +99,36 @@ header {
 }
 
 .favorites {
-    margin: 1em 5em;
-    padding: 1em;
+    margin: 1em 15em;
+    padding: .5em;
 }
 
 .brand:hover {
     color: red;
     cursor: pointer;
 }
-.form-control {
-    text-align: center;
+
+body {
+    background-image: url('https://www.nappadori.com/media/images/cafe-dori/cdbanner_01.jpg');
+    background-position: center;
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}
+
+.btn {
+    font-size: 18px;
+    transition:color .5s ease-in-out;
+}
+
+.list-group-item {
+    opacity: 0.7;
+    border-radius: 5px;
+    padding: .5em;
+    margin: .5em;
+    background: ghostwhite;
+}
+
+.card {
+    margin: .5em;
+    opacity: 0.9;
 }
