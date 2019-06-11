@@ -108,7 +108,7 @@ class Form extends Component{
     render () {
       return (
       <div className="catButtons">
-              <h3>Add Your Entry</h3>
+              <h3>- Add Your Entry -</h3>
               <div className="btn-group btn-group-lg">
               <button
                   type="button" className="btn btn-outline-dark"
@@ -128,58 +128,78 @@ class Form extends Component{
           { this.state.showForm ?
             <div className="form" onSubmit={this.handleSubmit}>
                    <form>
+                        <div className="form-group">
                         <input
+                          className="form-control"
                           id='date'
                           type='text'
                           placeholder="Date"
                           onChange={this.handleChange}
                           value={this.state.date}
                           />
+                          </div>
+                        <div className="form-group">
                         <input
+                            className="form-control"
                             id='brand'
                             type='text'
                             placeholder="Brand"
                             onChange={this.handleChange}
                             value={this.state.brand}
                         />
+                        </div>
+                        <div className="form-group">
                         <input
+                            className="form-control"
                             id='origin'
                             type='text'
                             placeholder="Origin"
                             onChange={this.handleChange}
                             value={this.state.origin}
                         />
+                        </div>
+                        <div className="form-group">
                         <input
+                          className="form-control"
                           id='location'
                           type='text'
                           placeholder="Location"
                           onChange={this.handleChange}
                           value={this.state.location}
                         />
+                        </div>
+                        <div className="form-group">
                         <input
+                          className="form-control"
                           id='rating'
                           type='text'
                           placeholder="Rating: 1-10"
                           onChange={this.handleChange}
                           value={this.state.rating}
                         />
-                        <p>Favorite:
+                        </div>
+                        <div className="form-group form-check">
+                        <h6 className="form-check-label">Favorite:</h6>
                         <input
+                          className="form-check-input"
                           onClick={this.handleCheck}
                           id='favorite'
                           type='checkbox'
-                          placeholder="Favorite"
                           value={this.state.favorite}
                         />
-                        </p>
+                        <br />
+                        </div>
+                        <div className="form-group">
                         <input
+                          className="form-control"
                           id='flavors'
                           type='text'
                           placeholder="Flavors"
                           onChange={this.handleChange}
                           value={this.state.flavors}
                         />
-                        <button type="submit" className="submit-button">Submit</button>
+                        </div>
+                        <button type="submit" className="btn btn-primary">Submit</button>
                    </form>
                 </div>
               :

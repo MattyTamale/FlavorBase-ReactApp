@@ -36,8 +36,8 @@ class Favorites extends Component{
     // }
     render () {
       return (
-        <div className="favorites" >
-            <button onClick={this.toggleFav}>Favorites {this.props.faves}</button>
+        <div className="fav-container" >
+            <button className="btn btn-primary btn btn-block" onClick={this.toggleFav}>Favorites: {this.props.faves}</button>
               {this.state.showFaves
                   ? this.props.favArray.map((fav, index) => {
                       return <div key={index}>

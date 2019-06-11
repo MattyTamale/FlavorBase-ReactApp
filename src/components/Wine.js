@@ -26,7 +26,7 @@ class Wine extends Component {
         return (
             <div className="card">
                 <div className="card-body">
-                <h4 className="card-title" onClick={this.toggleInfo}>{this.props.wine.brand}</h4>
+                <h5 className="card-title" onClick={this.toggleInfo}>{this.props.wine.brand}</h5>
                 {this.state.showInfo ?
                     <div>
                         <h6 className="card-subtitle mb-2 text-muted">{this.props.wine.date}</h6>

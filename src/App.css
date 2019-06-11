@@ -5,12 +5,24 @@ ul {
     text-align: center;
 }
 
+header {
+    background: skyblue;
+}
+
+.jumbotron {
+    background: RGB(240, 248, 255, 0.5);
+}
+
 .brandName:hover {
     color: red;
 }
 
 .catButtons {
+    background: RGB(240, 255, 255, 0.2);
     border: 1px solid black;
+    border-radius: 15px;
+    margin: 2em 10em;
+    padding: 1em;
 }
 
 .chooseCat {
@@ -55,4 +67,16 @@ ul {
 
 .item {
     border: 1px solid black;
+}
+
+.form {
+    margin-top: 1em;
+}
+
+.form-check-label {
+    float:left;
+}
+
+.fav-container {
+    margin: 2em 10em;
 }
