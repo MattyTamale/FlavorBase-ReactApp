@@ -18,7 +18,8 @@ class Favorites extends Component{
         this.setState(prevState => ({
             favArray: newFavorites
         }))
-        // this.props.handleFaves()
+        this.props.handleFaves()
+        console.log(this.props);
     }
     // handleFavos = () => {
     //   this.setState(prevState => {

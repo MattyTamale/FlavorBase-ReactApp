@@ -45,6 +45,7 @@ class App extends Component {
         this.removeFromArray = this.removeFromArray.bind(this);
         this.handleFavorites = this.handleFavorites.bind(this);
         this.handleBeerUpdate = this.handleBeerUpdate.bind(this);
+        this.handleFaves = this.handleFaves.bind(this);
     }
 
     handleCreate(formState){
@@ -445,7 +446,7 @@ class App extends Component {
                 favArray={this.state.favArray}
                 faves={this.state.faves}
                 randArray={this.state.randArray}
-                handleFaves={this.state.handleFaves}
+                handleFaves={this.handleFaves}
             />
             <Categories
                 currentBeers={this.state.currentBeers}
