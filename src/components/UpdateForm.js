@@ -108,9 +108,10 @@ class UpdateForm extends Component{
     render () {
       return (
       <div>
-            <div className="form" onSubmit={this.handleSubmit}>
+            <div className="form-group" onSubmit={this.handleSubmit}>
                    <form>
                         <input
+                          className="form-control"
                           id='date'
                           type='text'
                           placeholder="Date"
@@ -118,6 +119,7 @@ class UpdateForm extends Component{
                           value={this.state.date}
                           />
                         <input
+                            className="form-control"
                             id='brand'
                             type='text'
                             placeholder="Brand"
@@ -125,6 +127,7 @@ class UpdateForm extends Component{
                             value={this.state.brand}
                         />
                         <input
+                            className="form-control"
                             id='origin'
                             type='text'
                             placeholder="Origin"
@@ -132,6 +135,7 @@ class UpdateForm extends Component{
                             value={this.state.origin}
                         />
                         <input
+                          className="form-control"
                           id='location'
                           type='text'
                           placeholder="Location"
@@ -139,13 +143,16 @@ class UpdateForm extends Component{
                           value={this.state.location}
                         />
                         <input
+                          className="form-control"
                           id='rating'
                           type='text'
                           placeholder="Rating: 1-10"
                           onChange={this.handleChange}
                           value={this.state.rating}
                         />
+                        <h6 className="form-check-label">Favorite:</h6>
                         <input
+                          className="form-check-input"
                           onClick={this.handleCheck}
                           id='favorite'
                           type='checkbox'
@@ -153,6 +160,7 @@ class UpdateForm extends Component{
                           value={this.state.favorite}
                         />
                         <input
+                          className="form-control"
                           id='flavors'
                           type='text'
                           placeholder="Flavors"

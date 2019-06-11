@@ -127,7 +127,7 @@ class Form extends Component{
           </div>
           { this.state.showForm ?
             <div className="form" onSubmit={this.handleSubmit}>
-                   <form>
+                   <form >
                         <div className="form-group">
                         <input
                           className="form-control"

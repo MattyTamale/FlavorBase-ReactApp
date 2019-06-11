@@ -9,7 +9,7 @@ class Categories extends Component {
         return (
             <div className="categories">
                 <div className="list-group">
-                <h1>Beers: </h1>
+                <h1>Beers</h1>
                 {this.props.currentBeers.map((beer, index) => {
                             return (
                                 <div className="list-group-item">
@@ -27,7 +27,7 @@ class Categories extends Component {
                         })}
                 </div>
                 <div className="list-group">
-                <h1>Foods: </h1>
+                <h1>Foods</h1>
                 {this.props.currentFoods.map((food, index) => {
                             return (
                                 <div className="list-group-item">
@@ -45,7 +45,7 @@ class Categories extends Component {
                         })}
                 </div>
                 <div className="list-group">
-                <h1>Coffees: </h1>
+                <h1>Coffees</h1>
                 {this.props.currentCoffees.map((coffee, index) => {
                     return (
                         <div className="list-group-item">
@@ -63,7 +63,7 @@ class Categories extends Component {
                         })}
                 </div>
                 <div className="list-group">
-                <h1>Wines: </h1>
+                <h1>Wines</h1>
                 {this.props.currentWines.map((wine, index) => {
                             return (
                                 <div className="list-group-item">

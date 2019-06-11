@@ -95,3 +95,6 @@ header {
     color: red;
     cursor: pointer;
 }
+.form-control {
+    text-align: center;
+}
