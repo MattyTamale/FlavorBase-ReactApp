@@ -1,3 +1,154 @@
 ul {
     list-style-type: none;
 }
+.App {
+    text-align: center;
+}
+
+header {
+    background: skyblue;
+}
+
+.jumbotron {
+    background: RGB(240, 248, 255, 0.6);
+    color: black;
+    font-weight: bold;
+    padding-bottom: .8em;
+}
+
+.display-4 {
+}
+
+.brandName:hover {
+    color: red;
+}
+
+.catButtons {
+    background: RGB(240, 255, 255, 0.6);
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 2em 10em;
+    padding: 1em;
+}
+
+.chooseCat {
+    display: flex;
+    margin: 1em 30em;
+    justify-content: space-evenly;
+}
+
+.beerCat {
+    text-align: center;
+    font-size: 20px;
+}
+
+.foodCat {
+    padding: 1em 3em;
+    margin: .5em 1em;
+    font-size: 15px;
+}
+
+.coffeeCat {
+    padding: 1em 3em;
+    margin: .5em 1em;
+    font-size: 15px;
+}
+
+.wineCat {
+    padding: 1em 3em;
+    margin: .5em 1em;
+    font-size: 15px;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-evenly;
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-bottom: 3em;
+    padding: 1.5em;
+    background: RGB(240, 248, 255, 0.5);
+    border-radius: 8px;
+
+}
+
+.category {
+    border: 1px solid black;
+}
+
+.item {
+    border: 1px solid black;
+}
+
+.form {
+    margin-top: 1em;
+}
+
+.form-check-label {
+    float:left;
+}
+
+.fav-container {
+    margin: .5em 10em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.favorites {
+    margin: 1em 15em;
+    padding: .5em;
+}
+
+.brand:hover {
+    color: red;
+    cursor: pointer;
+}
+
+body {
+    background-image: url('https://www.nappadori.com/media/images/cafe-dori/cdbanner_01.jpg');
+    background-position: center;
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+}
+
+.btn {
+    font-size: 18px;
+    transition:color .5s ease-in-out;
+}
+
+.list-group-item {
+    opacity: 0.7;
+    border-radius: 5px;
+    padding: .5em;
+    margin: .5em;
+    background: ghostwhite;
+}
+
+.card {
+    margin: .5em;
+    opacity: 0.9;
+}
+
+.subtitle {
+    color: darkblue;
+    font-weight: bolder;
+    border: 1px solid grey;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 1em;
+    background: ghostwhite;
+}
+
+.rating {
+    border: 1px solid grey;
+    margin-left: 6em;
+    margin-right: 6em;
+    padding: .5em 0;
+    color: darkred;
+    background: ghostwhite;
+
+}

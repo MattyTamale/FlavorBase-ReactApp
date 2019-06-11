@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import UpdateForm from './UpdateForm.js';
 
 class Beer extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state ={
-            showInfo: false
+            showInfo: false,
+            updateInfo: false,
         }
     }
 
@@ -14,27 +16,53 @@ class Beer extends Component {
         })
     }
 
+    toggleUpdate = (event) => {
+        this.setState({
+            updateInfo: !this.state.updateInfo
+        })
+    }
+
     render() {
         return (
-            <div>
-                <h2 onClick={this.toggleInfo}>{this.props.beer.brand}</h2>
+            <div className="card">
+                <div className="card-body">
+                <h5 className="card-title" className="brand" onClick={this.toggleInfo}>{this.props.beer.brand}</h5>
                 {this.state.showInfo ?
-                    <ul>
-                        <li>{this.props.beer.date}</li>
-                        <li>{this.props.beer.origin}</li>
-                        <li>{this.props.beer.location}</li>
-                        <li>{this.props.beer.rating}</li>
-                        <li>{this.props.beer.favorite}</li>
-                        <li>{this.props.beer.flavors}</li>
-                        <button onClick={() => {this.props.handleBeerDelete(this.props.beer.entry_id, this.props.arrayIndex, this.props.currentBeers)}}>DELETE</button>
-                        <button onClick={() => {this.props.handleFavorites(this.props.beer)}}>ADD to Faves</button>
-                    </ul>
+                    <div>
+                        <h6 className="card-subtitle mb-2 text-muted">{this.props.beer.date}</h6>
+                        <p className="card-text">Origin: {this.props.beer.origin}</p>
+                        <p className="card-text">Location: {this.props.beer.location}</p>
+                        <p className="card-text" className="rating">{this.props.beer.rating}/10</p>
+                        <h5 className="card-title" className="subtitle">{this.props.beer.flavors}</h5>
+                        <div className="btn-group-sm">
+                        <button className="btn btn-light" onClick={() => {this.props.handleBeerDelete(this.props.beer.entry_id, this.props.arrayIndex, this.props.currentBeers)}}>DELETE</button>
+                        <button className="btn btn-light" onClick={() => {this.props.handleFavorites(this.props.beer)}}>ADD to Faves</button>
+                        <button className="btn btn-light" onClick={this.toggleUpdate}>
+                            UPDATE
+                        </button>
+                        </div>
+                        {this.state.updateInfo ?
+                            <div >
+                                Form:<UpdateForm
+                                    arrayIndex={this.props.arrayIndex}
+                                    beer={this.props.beer}
+                                    currentBeers={this.props.currentBeers}
+                                    handleBeerUpdate={this.props.handleBeerUpdate}
+                                />
+                            </div>
+                        : ''
+                        }
+                    </div>
                 : ''
                 }
+                </div>
             </div>
         )
     }
 }
+// <button onClick={() => {this.props.handleBeerUpdate(this.props.beer.entry_id, this.props.arrayIndex, this.props.currentBeers)}}>
+//     UPDATE
+// </button>
 
 // <h1>Beers: </h1>
 export default Beer;

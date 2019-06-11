@@ -8,10 +8,11 @@ class Categories extends Component {
     render(){
         return (
             <div className="categories">
-                <div className="category">
-                <h1>Beers: </h1>
+                <div className="list-group">
+                <h1>Beers</h1>
                 {this.props.currentBeers.map((beer, index) => {
                             return (
+                                <div className="list-group-item">
                                 <Beer
                                     key={index}
                                     beer={beer}
@@ -19,14 +20,17 @@ class Categories extends Component {
                                     currentBeers={this.props.currentBeers}
                                     handleBeerDelete={this.props.handleBeerDelete}
                                     handleFavorites={this.props.handleFavorites}
+                                    handleBeerUpdate={this.props.handleBeerUpdate}
                                 />
+                                </div>
                             )
                         })}
                 </div>
-                <div className="category">
-                <h1>Foods: </h1>
+                <div className="list-group">
+                <h1>Foods</h1>
                 {this.props.currentFoods.map((food, index) => {
                             return (
+                                <div className="list-group-item">
                                 <Food
                                     key={index}
                                     food={food}
@@ -34,14 +38,17 @@ class Categories extends Component {
                                     currentFoods={this.props.currentFoods}
                                     handleFoodDelete={this.props.handleFoodDelete}
                                     handleFavorites={this.props.handleFavorites}
+                                    handleFoodUpdate={this.props.handleFoodUpdate}
                                 />
+                                </div>
                             )
                         })}
                 </div>
-                <div className="category">
-                <h1>Coffees: </h1>
+                <div className="list-group">
+                <h1>Coffees</h1>
                 {this.props.currentCoffees.map((coffee, index) => {
                     return (
+                        <div className="list-group-item">
                         <Coffee
                             key={index}
                             coffee={coffee}
@@ -49,14 +56,17 @@ class Categories extends Component {
                             currentCoffees={this.props.currentCoffees}
                             handleCoffeeDelete={this.props.handleCoffeeDelete}
                             handleFavorites={this.props.handleFavorites}
+                            handleCoffeeUpdate={this.props.handleCoffeeUpdate}
                         />
+                        </div>
                             )
                         })}
                 </div>
-                <div className="category">
-                <h1>Wines: </h1>
+                <div className="list-group">
+                <h1>Wines</h1>
                 {this.props.currentWines.map((wine, index) => {
                             return (
+                                <div className="list-group-item">
                                 <Wine
                                     key={index}
                                     wine={wine}
@@ -64,7 +74,9 @@ class Categories extends Component {
                                     currentWines={this.props.currentWines}
                                     handleWineDelete={this.props.handleWineDelete}
                                     handleFavorites={this.props.handleFavorites}
+                                    handleWineUpdate={this.props.handleWineUpdate}
                                 />
+                                </div>
                             )
                         })}
                 </div>

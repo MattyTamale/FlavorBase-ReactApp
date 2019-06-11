@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Form extends Component{
+class UpdateForm extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -19,14 +19,14 @@ class Form extends Component{
     }
     handleSubmit = (e) => {
          e.preventDefault()
-         if(this.state.currentCategory === "beer"){
-            this.props.handleCreateBeer(this.state)
-        }else if(this.state.currentCategory === "coffee"){
-            this.props.handleCreateCoffee(this.state)
-        }else if(this.state.currentCategory === "wine"){
-             this.props.handleCreateWine(this.state)
-        }else if(this.state.currentCategory === "food"){
-              this.props.handleCreateFood(this.state)
+         if(this.props.currentBeers){
+            this.props.handleBeerUpdate(this.state, this.props.arrayIndex, this.props.currentBeers, this.props.beer.entry_id)
+        }else if(this.props.currentFoods){
+           this.props.handleFoodUpdate(this.state, this.props.arrayIndex, this.props.currentFoods, this.props.food.entry_id)
+       }else if(this.props.currentCoffees){
+           this.props.handleCoffeeUpdate(this.state, this.props.arrayIndex, this.props.currentCoffees, this.props.coffee.entry_id)
+       }else if(this.props.currentWines){
+           this.props.handleWineUpdate(this.state, this.props.arrayIndex, this.props.currentWines, this.props.wine.entry_id)
         }
          // this.props.handleCreate(this.state)
          this.hideForm();
@@ -107,28 +107,9 @@ class Form extends Component{
 
     render () {
       return (
-      <div className="catButtons">
-              <h3>- Add Your Entry -</h3>
-              <div className="btn-group btn-group-lg">
-              <button
-                  type="button" className="btn btn-outline-dark"
-                  onClick={this.handleCategory}
-                  id="beer">
-                  Beer</button>
-              <button
-                  onClick={this.handleCategory}
-                  id="food" className="btn btn-outline-info">Food</button>
-              <button
-                  onClick={this.handleCategory}
-                  id="coffee" type="button" class="btn btn-outline-secondary">Coffee</button>
-              <button
-                  onClick={this.handleCategory}
-                  id="wine" className="btn btn-outline-danger">Wine</button>
-          </div>
-          { this.state.showForm ?
-            <div className="form" onSubmit={this.handleSubmit}>
-                   <form >
-                        <div className="form-group">
+      <div>
+            <div className="form-group" onSubmit={this.handleSubmit}>
+                   <form>
                         <input
                           className="form-control"
                           id='date'
@@ -137,8 +118,6 @@ class Form extends Component{
                           onChange={this.handleChange}
                           value={this.state.date}
                           />
-                          </div>
-                        <div className="form-group">
                         <input
                             className="form-control"
                             id='brand'
@@ -147,8 +126,6 @@ class Form extends Component{
                             onChange={this.handleChange}
                             value={this.state.brand}
                         />
-                        </div>
-                        <div className="form-group">
                         <input
                             className="form-control"
                             id='origin'
@@ -157,8 +134,6 @@ class Form extends Component{
                             onChange={this.handleChange}
                             value={this.state.origin}
                         />
-                        </div>
-                        <div className="form-group">
                         <input
                           className="form-control"
                           id='location'
@@ -167,33 +142,28 @@ class Form extends Component{
                           onChange={this.handleChange}
                           value={this.state.location}
                         />
-                        </div>
-                        <div className="form-group">
-                        <label>
-                        Rating 1-10:</label>
-                        <input
-                          className="form-control"
-                          max="10"
-                          min="1"
-                          id='rating'
-                          type='number'
-                          placeholder="Rating: 1-10"
-                          onChange={this.handleChange}
-                          value={this.state.rating}
-                        />
-                        </div>
-                        <div className="form-group form-check">
-                        <label>Favorite:</label><br/>
+                            <label>
+                            Rating 1-10:</label>
+                            <input
+                              className="form-control"
+                              max="10"
+                              min="1"
+                              id='rating'
+                              type='number'
+                              placeholder="Rating: 1-10"
+                              onChange={this.handleChange}
+                              value={this.state.rating}
+                            />
+                        <h6 className="form-check-label">Favorite:</h6>
                         <input
                           className="form-check-input"
                           onClick={this.handleCheck}
                           id='favorite'
                           type='checkbox'
-                          value="favorite"
+                          placeholder="Favorite"
+                          value={this.state.favorite}
                         />
                         <br />
-                        </div>
-                        <div className="form-group">
                         <input
                           className="form-control"
                           id='flavors'
@@ -202,16 +172,13 @@ class Form extends Component{
                           onChange={this.handleChange}
                           value={this.state.flavors}
                         />
-                        </div>
+                        <br />
                         <button type="submit" className="btn btn-primary">Submit</button>
                    </form>
                 </div>
-              :
-              ''
-            }
        </div>
       )
     }
 }
 
-export default Form;
+export default UpdateForm;
