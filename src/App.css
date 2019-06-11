@@ -90,3 +90,8 @@ header {
     margin: 1em 5em;
     padding: 1em;
 }
+
+.brand:hover {
+    color: red;
+    cursor: pointer;
+}

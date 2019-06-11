@@ -26,7 +26,7 @@ class Food extends Component {
         return (
             <div className="card">
                 <div className="card-body">
-                <h5 className="card-title" onClick={this.toggleInfo}>{this.props.food.brand}</h5>
+                <h5 className="card-title" className="brand" onClick={this.toggleInfo}>{this.props.food.brand}</h5>
                 {this.state.showInfo ?
                     <div>
                         <h6 className="card-subtitle mb-2 text-muted">{this.props.food.date}</h6>
@@ -34,11 +34,13 @@ class Food extends Component {
                         <p className="card-text">{this.props.food.location}</p>
                         <p className="card-text">{this.props.food.rating}</p>
                         <h5 className="card-title">{this.props.food.flavors}</h5>
-                        <button onClick={() => {this.props.handleFoodDelete(this.props.food.entry_id, this.props.arrayIndex, this.props.currentFoods)}}>DELETE</button>
-                        <button onClick={() => {this.props.handleFavorites(this.props.food)}}>ADD to Faves</button>
-                        <button onClick={this.toggleUpdate}>
+                        <div className="btn-group-sm">
+                        <button className="btn btn-light" onClick={() => {this.props.handleFoodDelete(this.props.food.entry_id, this.props.arrayIndex, this.props.currentFoods)}}>DELETE</button>
+                        <button className="btn btn-light" onClick={() => {this.props.handleFavorites(this.props.food)}}>ADD to Faves</button>
+                        <button className="btn btn-light" onClick={this.toggleUpdate}>
                             UPDATE
                         </button>
+                        </div>
                         {this.state.updateInfo ?
                             <div >
                                 Form:<UpdateForm
