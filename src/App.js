@@ -490,7 +490,7 @@ class App extends Component {
                 <div className="container">
                 <h1 className="display-4"> FlavorBase </h1>
                 <hr className="my-4" />
-                <p class="lead">Create and explor this wonderful comprendium of different flavors.</p>
+                <p class="lead">Create and explore this wonderful comprendium of different flavors.</p>
                 </div>
             </header>
             <Form
