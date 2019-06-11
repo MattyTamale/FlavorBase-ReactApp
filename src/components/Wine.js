@@ -24,15 +24,16 @@ class Wine extends Component {
 
     render() {
         return (
-            <div>
-                <h2 className="brandName" onClick={this.toggleInfo}>{this.props.wine.brand}</h2>
+            <div className="card">
+                <div className="card-body">
+                <h4 className="card-title" onClick={this.toggleInfo}>{this.props.wine.brand}</h4>
                 {this.state.showInfo ?
-                    <ul>
-                        <li>{this.props.wine.date}</li>
-                        <li>{this.props.wine.origin}</li>
-                        <li>{this.props.wine.location}</li>
-                        <li>{this.props.wine.rating}</li>
-                        <li>{this.props.wine.flavors}</li>
+                    <div>
+                        <h6 className="card-subtitle mb-2 text-muted">{this.props.wine.date}</h6>
+                        <p className="card-text">{this.props.wine.origin}</p>
+                        <p className="card-text">{this.props.wine.location}</p>
+                        <p className="card-text">{this.props.wine.rating}</p>
+                        <h5 className="card-title">{this.props.wine.flavors}</h5>
                         <button onClick={() => {this.props.handleWineDelete(this.props.wine.entry_id, this.props.arrayIndex, this.props.currentWines)}}>DELETE</button>
                         <button onClick={() => {this.props.handleFavorites(this.props.wine)}}>ADD to Faves</button>
                         <button onClick={this.toggleUpdate}>
@@ -49,9 +50,10 @@ class Wine extends Component {
                             </div>
                         : ''
                         }
-                    </ul>
+                    </div>
                 : ''
                 }
+                </div>
             </div>
         )
     }

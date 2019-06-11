@@ -24,15 +24,16 @@ class Coffee extends Component {
 
     render() {
         return (
-            <div>
-                <h2 className="brandName" onClick={this.toggleInfo}>{this.props.coffee.brand}</h2>
+            <div className="card">
+                <div className="card-body">
+                <h4 className="card-title" onClick={this.toggleInfo}>{this.props.coffee.brand}</h4>
                 {this.state.showInfo ?
-                    <ul>
-                        <li>{this.props.coffee.date}</li>
-                        <li>{this.props.coffee.origin}</li>
-                        <li>{this.props.coffee.location}</li>
-                        <li>{this.props.coffee.rating}</li>
-                        <li>{this.props.coffee.flavors}</li>
+                    <div>
+                        <h6 className="card-subtitle mb-2 text-muted">{this.props.coffee.date}</h6>
+                        <p className="card-text">{this.props.coffee.origin}</p>
+                        <p className="card-text">{this.props.coffee.location}</p>
+                        <p className="card-text">{this.props.coffee.rating}</p>
+                        <h5 className="card-title">{this.props.coffee.flavors}</h5>
                         <button onClick={() => {this.props.handleCoffeeDelete(this.props.coffee.entry_id, this.props.arrayIndex, this.props.currentCoffees)}}>DELETE</button>
                         <button onClick={() => {this.props.handleFavorites(this.props.coffee)}}>ADD to Faves</button>
                         <button onClick={this.toggleUpdate}>
@@ -49,9 +50,10 @@ class Coffee extends Component {
                             </div>
                         : ''
                         }
-                    </ul>
+                    </div>
                 : ''
                 }
+                </div>
             </div>
         )
     }

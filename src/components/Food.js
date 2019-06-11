@@ -24,15 +24,16 @@ class Food extends Component {
 
     render() {
         return (
-            <div>
-                <h2 className="brandName" onClick={this.toggleInfo}>{this.props.food.brand}</h2>
+            <div className="card">
+                <div className="card-body">
+                <h5 className="card-title" onClick={this.toggleInfo}>{this.props.food.brand}</h5>
                 {this.state.showInfo ?
-                    <ul>
-                        <li>{this.props.food.date}</li>
-                        <li>{this.props.food.origin}</li>
-                        <li>{this.props.food.location}</li>
-                        <li>{this.props.food.rating}</li>
-                        <li>{this.props.food.flavors}</li>
+                    <div>
+                        <h6 className="card-subtitle mb-2 text-muted">{this.props.food.date}</h6>
+                        <p className="card-text">{this.props.food.origin}</p>
+                        <p className="card-text">{this.props.food.location}</p>
+                        <p className="card-text">{this.props.food.rating}</p>
+                        <h5 className="card-title">{this.props.food.flavors}</h5>
                         <button onClick={() => {this.props.handleFoodDelete(this.props.food.entry_id, this.props.arrayIndex, this.props.currentFoods)}}>DELETE</button>
                         <button onClick={() => {this.props.handleFavorites(this.props.food)}}>ADD to Faves</button>
                         <button onClick={this.toggleUpdate}>
@@ -49,9 +50,10 @@ class Food extends Component {
                             </div>
                         : ''
                         }
-                    </ul>
+                    </div>
                 : ''
                 }
+                </div>
             </div>
         )
     }

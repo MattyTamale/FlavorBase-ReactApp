@@ -109,21 +109,21 @@ class Form extends Component{
       return (
       <div className="catButtons">
               <h3>Add Your Entry</h3>
-              <div className="chooseCat">
+              <div className="btn-group btn-group-lg">
               <button
-                  className="beerCat"
+                  type="button" className="btn btn-outline-dark"
                   onClick={this.handleCategory}
                   id="beer">
                   Beer</button>
               <button
                   onClick={this.handleCategory}
-                  id="food" className="foodCat">Food</button>
+                  id="food" className="btn btn-outline-info">Food</button>
               <button
                   onClick={this.handleCategory}
-                  id="coffee" className="coffeeCat">Coffee</button>
+                  id="coffee" type="button" class="btn btn-outline-secondary">Coffee</button>
               <button
                   onClick={this.handleCategory}
-                  id="wine" className="wineCat">Wine</button>
+                  id="wine" className="btn btn-outline-danger">Wine</button>
           </div>
           { this.state.showForm ?
             <div className="form" onSubmit={this.handleSubmit}>
@@ -172,13 +172,6 @@ class Form extends Component{
                           value={this.state.favorite}
                         />
                         </p>
-                        <input
-                          onClick={this.handleCheck}
-                          id='favorite'
-                          type='checkbox'
-                          placeholder="Favorite"
-                          value={this.state.favorite}
-                        />
                         <input
                           id='flavors'
                           type='text'

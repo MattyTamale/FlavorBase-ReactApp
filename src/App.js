@@ -486,8 +486,12 @@ class App extends Component {
     render() {
         return (
           <div className="App">
-            <header className="App-header">
-                <h1> FlavorBase </h1>
+            <header className="jumbotron jumbotron-fluid">
+                <div className="container">
+                <h1 className="display-4"> FlavorBase </h1>
+                <hr className="my-4" />
+                <p class="lead">Create and explor this wonderful comprendium of different flavors.</p>
+                </div>
             </header>
             <Form
                 currentBeers={this.state.currentBeers}

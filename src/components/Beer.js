@@ -24,15 +24,16 @@ class Beer extends Component {
 
     render() {
         return (
-            <div>
-                <h2 className="brandName" onClick={this.toggleInfo}>{this.props.beer.brand}</h2>
+            <div className="card">
+                <div className="card-body">
+                <h4 className="card-title" onClick={this.toggleInfo}>{this.props.beer.brand}</h4>
                 {this.state.showInfo ?
-                    <ul>
-                        <li>{this.props.beer.date}</li>
-                        <li>{this.props.beer.origin}</li>
-                        <li>{this.props.beer.location}</li>
-                        <li>{this.props.beer.rating}</li>
-                        <li>{this.props.beer.flavors}</li>
+                    <div>
+                        <h6 className="card-subtitle mb-2 text-muted">{this.props.beer.date}</h6>
+                        <p className="card-text">{this.props.beer.origin}</p>
+                        <p className="card-text">{this.props.beer.location}</p>
+                        <p className="card-text">{this.props.beer.rating}</p>
+                        <h5 className="card-title">{this.props.beer.flavors}</h5>
                         <button onClick={() => {this.props.handleBeerDelete(this.props.beer.entry_id, this.props.arrayIndex, this.props.currentBeers)}}>DELETE</button>
                         <button onClick={() => {this.props.handleFavorites(this.props.beer)}}>ADD to Faves</button>
                         <button onClick={this.toggleUpdate}>
@@ -49,9 +50,10 @@ class Beer extends Component {
                             </div>
                         : ''
                         }
-                    </ul>
+                    </div>
                 : ''
                 }
+                </div>
             </div>
         )
     }
