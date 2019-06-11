@@ -38,24 +38,28 @@ class Favorites extends Component{
       return (
         <div className="fav-container" >
             <button className="btn btn-primary btn btn-block" onClick={this.toggleFav}>Favorites: {this.props.faves}</button>
+            <div className="container">
+                <div className="favorites">
               {this.state.showFaves
                   ? this.props.favArray.map((fav, index) => {
-                      return <div key={index}>
-                              <ul key={index}>
-                                  <li>{fav.date}</li>
-                                  <li>{fav.brand}</li>
-                                  <li>{fav.origin}</li>
-                                  <li>{fav.location}</li>
-                                  <li>{fav.rating}</li>
-                                  <li>{fav.flavors}</li>
-                              </ul>
-                              <button
-
-                              id={index}
-                               onClick={this.removeFav}>Remove</button>
+                      return <div className="card" key={index}>
+                              <div className="card-body" key={index}>
+                                  <h5 className="card-title">{fav.brand}</h5>
+                                  <h6 className="card-subtitle mb-2 text-muted">{fav.flavors}</h6>
+                                  <p className="card-text">{fav.date}</p>
+                                  <p className="card-text">{fav.origin}</p>
+                                  <p className="card-text">{fav.location}</p>
+                                  <p className="card-text">{fav.rating}</p>
+                                  <button
+                                  className="btn btn-outline-danger btn-sm"
+                                  id={index}
+                                   onClick={this.removeFav}>Remove</button>
+                              </div>
                           </div>
                   })
                   : ''}
+                </div>
+            </div>
          </div>
       )
     }

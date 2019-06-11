@@ -59,6 +59,7 @@ header {
     flex-wrap: wrap;
     text-align: center;
     justify-content: space-evenly;
+    margin-bottom: 3em;
 }
 
 .category {
@@ -78,5 +79,14 @@ header {
 }
 
 .fav-container {
-    margin: 2em 10em;
+    margin: .5em 10em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.favorites {
+    margin: 1em 5em;
+    padding: 1em;
 }
