@@ -130,6 +130,26 @@ class App extends Component {
             this.handleFaves()
     }
 
+    handleCreateBeer(beer) {
+        if (beer.favorite === true){
+            this.handleFavorites(beer)
+        }
+        fetch('https://flavorbase-api.herokuapp.com/beers', {
+            body: JSON.stringify(beer),
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+            }).then( createdBeer => {
+                return createdBeer.json()
+            }).then( jData => {
+                this.updateBeerArray(jData, 'currentBeers')
+            }).catch( err => console.log(err));
+            this.handleFaves()
+    }
+    // https://flavorbase-api.herokuapp.com/coffees
+
     handleCreateFood(food) {
         console.log(food);
         if (food.favorite === true){
