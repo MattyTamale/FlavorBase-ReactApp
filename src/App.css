@@ -4,3 +4,45 @@ ul {
 .App {
     text-align: center;
 }
+
+.brandName:hover {
+    color: red;
+}
+
+.catButtons {
+    border: 1px solid black;
+}
+
+.chooseCat {
+    display: flex;
+    margin: 1em 30em;
+    justify-content: space-evenly;
+}
+
+.beerCat {
+    padding: 1.5em 5em;
+    margin: .5em 1em;
+    text-align: center;
+}
+
+.foodCat {
+    padding: 1.5em 5em;
+    margin: .5em 1em;
+}
+
+.coffeeCat {
+    padding: 1.5em 5em;
+    margin: .5em 1em;
+}
+
+.wineCat {
+    padding: 1.5em 5em;
+    margin: .5em 1em;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-evenly;
+}

@@ -45,6 +45,9 @@ class App extends Component {
         this.removeFromArray = this.removeFromArray.bind(this);
         this.handleFavorites = this.handleFavorites.bind(this);
         this.handleBeerUpdate = this.handleBeerUpdate.bind(this);
+        this.handleFoodUpdate = this.handleFoodUpdate.bind(this);
+        this.handleWineUpdate = this.handleWineUpdate.bind(this);
+        this.handleCoffeeUpdate = this.handleCoffeeUpdate.bind(this);
         this.handleFaves = this.handleFaves.bind(this);
     }
 
@@ -191,13 +194,6 @@ class App extends Component {
 
     handleBeerUpdate(beer, arrayIndex, currentArray, entry_id){
         console.log("this is beer:", beer);
-        this.setState(prevState => {
-            console.log("this is prevState:", prevState);
-            // prevState.favArray.push(entry)
-            // return {
-            //     favArray: prevState.favArray
-            //     }
-            })
         this.setState({
             currentArray: currentArray
         })
@@ -214,6 +210,72 @@ class App extends Component {
             console.log("this is jData", jData);
             this.removeFromArray(currentArray, arrayIndex);
             this.updateBeerArray(jData, 'currentBeers');
+            })
+        .catch(err => console.log('this is error from handleUpdate', err));
+        this.handleFaves()
+    }
+
+    handleFoodUpdate(food, arrayIndex, currentArray, entry_id){
+        this.setState({
+            currentArray: currentArray
+        })
+        fetch(`http://localhost:3000/foods/${entry_id}`, {
+            body: JSON.stringify(food),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then( updatedFood => updatedFood.json())
+        .then(jData => {
+            console.log("this is jData", jData);
+            this.removeFromArray(currentArray, arrayIndex);
+            this.updateFoodArray(jData, 'currentFoods');
+            })
+        .catch(err => console.log('this is error from handleUpdate', err));
+        this.handleFaves()
+    }
+
+    handleCoffeeUpdate(coffee, arrayIndex, currentArray, entry_id){
+        this.setState({
+            currentArray: currentArray
+        })
+        fetch(`http://localhost:3000/coffees/${entry_id}`, {
+            body: JSON.stringify(coffee),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then( updatedCoffee => updatedCoffee.json())
+        .then(jData => {
+            console.log("this is jData", jData);
+            this.removeFromArray(currentArray, arrayIndex);
+            this.updateFoodArray(jData, 'currentCoffees');
+            })
+        .catch(err => console.log('this is error from handleUpdate', err));
+        this.handleFaves()
+    }
+
+    handleWineUpdate(wine, arrayIndex, currentArray, entry_id){
+        this.setState({
+            currentArray: currentArray
+        })
+        fetch(`http://localhost:3000/wines/${entry_id}`, {
+            body: JSON.stringify(wine),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then( updatedWine => updatedWine.json())
+        .then(jData => {
+            console.log("this is jData", jData);
+            this.removeFromArray(currentArray, arrayIndex);
+            this.updateFoodArray(jData, 'currentWines');
             })
         .catch(err => console.log('this is error from handleUpdate', err));
         this.handleFaves()
@@ -459,6 +521,9 @@ class App extends Component {
                 handleWineDelete={this.handleWineDelete}
                 handleFavorites={this.handleFavorites}
                 handleBeerUpdate={this.handleBeerUpdate}
+                handleFoodUpdate={this.handleFoodUpdate}
+                handleWineUpdate={this.handleWineUpdate}
+                handleCoffeeUpdate={this.handleCoffeeUpdate}
             />
           </div>
         );

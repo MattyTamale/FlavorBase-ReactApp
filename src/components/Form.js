@@ -107,22 +107,23 @@ class Form extends Component{
 
     render () {
       return (
-      <div>
-          <div className="chooseCat">
+      <div className="catButtons">
               <h3>Add Your Entry</h3>
+              <div className="chooseCat">
               <button
+                  className="beerCat"
                   onClick={this.handleCategory}
                   id="beer">
                   Beer</button>
               <button
                   onClick={this.handleCategory}
-                  id="food">Food</button>
+                  id="food" className="foodCat">Food</button>
               <button
                   onClick={this.handleCategory}
-                  id="coffee">Coffee</button>
+                  id="coffee" className="coffeeCat">Coffee</button>
               <button
                   onClick={this.handleCategory}
-                  id="wine">Wine</button>
+                  id="wine" className="wineCat">Wine</button>
           </div>
           { this.state.showForm ?
             <div className="form" onSubmit={this.handleSubmit}>

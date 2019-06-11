@@ -21,12 +21,12 @@ class UpdateForm extends Component{
          e.preventDefault()
          if(this.props.currentBeers){
             this.props.handleBeerUpdate(this.state, this.props.arrayIndex, this.props.currentBeers, this.props.beer.entry_id)
-        }else if(this.state.currentCategory === "coffee"){
-            this.props.handleCreateCoffee(this.state)
-        }else if(this.state.currentCategory === "wine"){
-             this.props.handleCreateWine(this.state)
-        }else if(this.state.currentCategory === "food"){
-              this.props.handleCreateFood(this.state)
+        }else if(this.props.currentFoods){
+           this.props.handleFoodUpdate(this.state, this.props.arrayIndex, this.props.currentFoods, this.props.food.entry_id)
+       }else if(this.props.currentCoffees){
+           this.props.handleCoffeeUpdate(this.state, this.props.arrayIndex, this.props.currentCoffees, this.props.coffee.entry_id)
+       }else if(this.props.currentWines){
+           this.props.handleWineUpdate(this.state, this.props.arrayIndex, this.props.currentWines, this.props.wine.entry_id)
         }
          // this.props.handleCreate(this.state)
          this.hideForm();

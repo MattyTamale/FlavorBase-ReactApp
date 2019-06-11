@@ -35,6 +35,7 @@ class Categories extends Component {
                                     currentFoods={this.props.currentFoods}
                                     handleFoodDelete={this.props.handleFoodDelete}
                                     handleFavorites={this.props.handleFavorites}
+                                    handleFoodUpdate={this.props.handleFoodUpdate}
                                 />
                             )
                         })}
@@ -50,6 +51,7 @@ class Categories extends Component {
                             currentCoffees={this.props.currentCoffees}
                             handleCoffeeDelete={this.props.handleCoffeeDelete}
                             handleFavorites={this.props.handleFavorites}
+                            handleCoffeeUpdate={this.props.handleCoffeeUpdate}
                         />
                             )
                         })}
@@ -65,6 +67,7 @@ class Categories extends Component {
                                     currentWines={this.props.currentWines}
                                     handleWineDelete={this.props.handleWineDelete}
                                     handleFavorites={this.props.handleFavorites}
+                                    handleWineUpdate={this.props.handleWineUpdate}
                                 />
                             )
                         })}
