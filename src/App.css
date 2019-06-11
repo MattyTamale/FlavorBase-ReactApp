@@ -132,3 +132,23 @@ body {
     margin: .5em;
     opacity: 0.9;
 }
+
+.subtitle {
+    color: darkblue;
+    font-weight: bolder;
+    border: 1px solid grey;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 1em;
+    background: ghostwhite;
+}
+
+.rating {
+    border: 1px solid grey;
+    margin-left: 6em;
+    margin-right: 6em;
+    padding: .5em 0;
+    color: darkred;
+    background: ghostwhite;
+
+}

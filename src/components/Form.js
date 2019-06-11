@@ -170,7 +170,7 @@ class Form extends Component{
                         </div>
                         <div className="form-group">
                         <label>
-                        Rating 1-10</label>
+                        Rating 1-10:</label>
                         <input
                           className="form-control"
                           max="10"

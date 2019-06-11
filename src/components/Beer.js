@@ -30,10 +30,10 @@ class Beer extends Component {
                 {this.state.showInfo ?
                     <div>
                         <h6 className="card-subtitle mb-2 text-muted">{this.props.beer.date}</h6>
-                        <p className="card-text">{this.props.beer.origin}</p>
-                        <p className="card-text">{this.props.beer.location}</p>
-                        <p className="card-text">{this.props.beer.rating}</p>
-                        <h5 className="card-title">{this.props.beer.flavors}</h5>
+                        <p className="card-text">Origin: {this.props.beer.origin}</p>
+                        <p className="card-text">Location: {this.props.beer.location}</p>
+                        <p className="card-text" className="rating">{this.props.beer.rating}/10</p>
+                        <h5 className="card-title" className="subtitle">{this.props.beer.flavors}</h5>
                         <div className="btn-group-sm">
                         <button className="btn btn-light" onClick={() => {this.props.handleBeerDelete(this.props.beer.entry_id, this.props.arrayIndex, this.props.currentBeers)}}>DELETE</button>
                         <button className="btn btn-light" onClick={() => {this.props.handleFavorites(this.props.beer)}}>ADD to Faves</button>

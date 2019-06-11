@@ -30,10 +30,10 @@ class Food extends Component {
                 {this.state.showInfo ?
                     <div>
                         <h6 className="card-subtitle mb-2 text-muted">{this.props.food.date}</h6>
-                        <p className="card-text">{this.props.food.origin}</p>
-                        <p className="card-text">{this.props.food.location}</p>
-                        <p className="card-text">{this.props.food.rating}</p>
-                        <h5 className="card-title">{this.props.food.flavors}</h5>
+                        <p className="card-text">Origin: {this.props.food.origin}</p>
+                        <p className="card-text">Location: {this.props.food.location}</p>
+                        <p className="card-text" className="rating">{this.props.food.rating}/10</p>
+                        <h5 className="card-title" className="subtitle">{this.props.food.flavors}</h5>
                         <div className="btn-group-sm">
                         <button className="btn btn-light" onClick={() => {this.props.handleFoodDelete(this.props.food.entry_id, this.props.arrayIndex, this.props.currentFoods)}}>DELETE</button>
                         <button className="btn btn-light" onClick={() => {this.props.handleFavorites(this.props.food)}}>ADD to Faves</button>

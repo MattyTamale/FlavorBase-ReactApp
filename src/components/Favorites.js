@@ -44,12 +44,12 @@ class Favorites extends Component{
                   ? this.props.favArray.map((fav, index) => {
                       return <div className="card" key={index}>
                               <div className="card-body" key={index}>
-                                  <h5 className="card-title">{fav.brand}</h5>
-                                  <h6 className="card-subtitle mb-2 text-muted">{fav.flavors}</h6>
+                                  <h4 className="card-title">{fav.brand}</h4>
+                                  <h5 className="card-subtitle mb-2 text-muted" className="subtitle">{fav.flavors}</h5>
                                   <p className="card-text">{fav.date}</p>
-                                  <p className="card-text">{fav.origin}</p>
-                                  <p className="card-text">{fav.location}</p>
-                                  <p className="card-text">{fav.rating}</p>
+                                  <p className="card-text">Origin: {fav.origin}</p>
+                                  <p className="card-text">Location: {fav.location}</p>
+                                  <p className="card-text" className="rating">{fav.rating}/10</p>
                                   <button
                                   className="btn btn-outline-danger btn-sm"
                                   id={index}

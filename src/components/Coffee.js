@@ -30,10 +30,10 @@ class Coffee extends Component {
                 {this.state.showInfo ?
                     <div>
                         <h6 className="card-subtitle mb-2 text-muted">{this.props.coffee.date}</h6>
-                        <p className="card-text">{this.props.coffee.origin}</p>
-                        <p className="card-text">{this.props.coffee.location}</p>
-                        <p className="card-text">{this.props.coffee.rating}</p>
-                        <h5 className="card-title">{this.props.coffee.flavors}</h5>
+                        <p className="card-text">Origin: {this.props.coffee.origin}</p>
+                        <p className="card-text">Location: {this.props.coffee.location}</p>
+                        <p className="card-text" className="rating">{this.props.coffee.rating}/10</p>
+                        <h5 className="card-title" className="subtitle">{this.props.coffee.flavors}</h5>
                         <div className="btn-group-sm">
                         <button className="btn btn-light" onClick={() => {this.props.handleCoffeeDelete(this.props.coffee.entry_id, this.props.arrayIndex, this.props.currentCoffees)}}>DELETE</button>
                         <button className="btn btn-light" onClick={() => {this.props.handleFavorites(this.props.coffee)}}>ADD to Faves</button>

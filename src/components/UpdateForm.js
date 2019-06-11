@@ -143,7 +143,7 @@ class UpdateForm extends Component{
                           value={this.state.location}
                         />
                             <label>
-                            Rating 1-10</label>
+                            Rating 1-10:</label>
                             <input
                               className="form-control"
                               max="10"
@@ -163,6 +163,7 @@ class UpdateForm extends Component{
                           placeholder="Favorite"
                           value={this.state.favorite}
                         />
+                        <br />
                         <input
                           className="form-control"
                           id='flavors'
@@ -171,7 +172,8 @@ class UpdateForm extends Component{
                           onChange={this.handleChange}
                           value={this.state.flavors}
                         />
-                        <button type="submit" className="submit-button">Submit</button>
+                        <br />
+                        <button type="submit" className="btn btn-primary">Submit</button>
                    </form>
                 </div>
        </div>
