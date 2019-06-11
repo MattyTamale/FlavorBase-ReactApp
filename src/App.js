@@ -111,25 +111,86 @@ class App extends Component {
     //=================
     // CREATE METHODS
     //================
-    handleCreateBeer(beer) {
-        if (beer.favorite === true){
-            this.handleFavorites(beer)
-        }
-        fetch('http://localhost:3000/beers', {
-            body: JSON.stringify(beer),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-            }).then( createdBeer => {
-                return createdBeer.json()
-            }).then( jData => {
-                this.updateBeerArray(jData, 'currentBeers')
-            }).catch( err => console.log(err));
-            this.handleFaves()
-    }
+    // handleCreateBeer(beer) {
+    //     if (beer.favorite === true){
+    //         this.handleFavorites(beer)
+    //     }
+    //     fetch('http://localhost:3000/beers', {
+    //         body: JSON.stringify(beer),
+    //         method: 'POST',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, */*',
+    //             'Content-Type': 'application/json'
+    //         }
+    //         }).then( createdBeer => {
+    //             return createdBeer.json()
+    //         }).then( jData => {
+    //             this.updateBeerArray(jData, 'currentBeers')
+    //         }).catch( err => console.log(err));
+    //         this.handleFaves()
+    // }
 
+    // handleCreateFood(food) {
+    //     console.log(food);
+    //     if (food.favorite === true){
+    //         this.handleFavorites(food)
+    //     }
+    // fetch('http://localhost:3000/foods', {
+    //     body: JSON.stringify(food),
+    //     method: 'POST',
+    //     headers: {
+    //         'Accept': 'application/json, text/plain, */*',
+    //         'Content-Type': 'application/json'
+    //     }
+    //     }).then( createdFood => {
+    //         return createdFood.json()
+    //     }).then( jData => {
+    //         this.updateFoodArray(jData, 'currentFoods')
+    //     }).catch( err => console.log(err));
+    //     this.handleFaves()
+    // }
+    //
+    // handleCreateCoffee(coffee) {
+    //   if (coffee.favorite === true){
+    //       this.handleFavorites(coffee)
+    //   }
+    // fetch('http://localhost:3000/coffees', {
+    //     body: JSON.stringify(coffee),
+    //     method: 'POST',
+    //     headers: {
+    //         'Accept': 'application/json, text/plain, */*',
+    //         'Content-Type': 'application/json'
+    //     }
+    //     }).then( createdCoffee => {
+    //         return createdCoffee.json()
+    //     }).then( jData => {
+    //         this.updateCoffeeArray(jData, 'currentCoffees')
+    //     }).catch( err => console.log(err));
+    //     this.handleFaves()
+    // }
+    //
+    // handleCreateWine(wine) {
+    //   if (wine.favorite === true){
+    //       this.handleFavorites(wine)
+    //   }
+    // fetch('http://localhost:3000/wines', {
+    //     body: JSON.stringify(wine),
+    //     method: 'POST',
+    //     headers: {
+    //         'Accept': 'application/json, text/plain, */*',
+    //         'Content-Type': 'application/json'
+    //     }
+    //     }).then( createdWine => {
+    //         return createdWine.json()
+    //     }).then( jData => {
+    //         this.updateWineArray(jData, 'currentWines')
+    //     }).catch( err => console.log(err));
+    //     this.handleFaves()
+    // }
+
+    //==============
+    //HEROKU CREATE
+    //==============
     handleCreateBeer(beer) {
         if (beer.favorite === true){
             this.handleFavorites(beer)
@@ -148,14 +209,13 @@ class App extends Component {
             }).catch( err => console.log(err));
             this.handleFaves()
     }
-    // https://flavorbase-api.herokuapp.com/coffees
 
     handleCreateFood(food) {
         console.log(food);
         if (food.favorite === true){
             this.handleFavorites(food)
         }
-    fetch('http://localhost:3000/foods', {
+    fetch('https://flavorbase-api.herokuapp.com/foods', {
         body: JSON.stringify(food),
         method: 'POST',
         headers: {
@@ -174,7 +234,7 @@ class App extends Component {
       if (coffee.favorite === true){
           this.handleFavorites(coffee)
       }
-    fetch('http://localhost:3000/coffees', {
+    fetch('https://flavorbase-api.herokuapp.com/coffees', {
         body: JSON.stringify(coffee),
         method: 'POST',
         headers: {
@@ -193,7 +253,7 @@ class App extends Component {
       if (wine.favorite === true){
           this.handleFavorites(wine)
       }
-    fetch('http://localhost:3000/wines', {
+    fetch('https://flavorbase-api.herokuapp.com/wines', {
         body: JSON.stringify(wine),
         method: 'POST',
         headers: {
@@ -208,16 +268,121 @@ class App extends Component {
         this.handleFaves()
     }
 
-    //================
-    //UPDATE METHODS
-    //================
+    // //================
+    // //UPDATE METHODS
+    // //================
+    //
+    // handleBeerUpdate(beer, arrayIndex, currentArray, entry_id){
+    //     console.log("this is beer:", beer);
+    //     this.setState({
+    //         currentArray: currentArray
+    //     })
+    //     fetch(`http://localhost:3000/beers/${entry_id}`, {
+    //         body: JSON.stringify(beer),
+    //         method: 'PUT',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, */*',
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //     .then( updatedBeer => updatedBeer.json())
+    //     .then(jData => {
+    //         console.log("this is jData", jData);
+    //         this.removeFromArray(currentArray, arrayIndex);
+    //         this.updateBeerArray(jData, 'currentBeers');
+    //         })
+    //     .catch(err => console.log('this is error from handleUpdate', err));
+    //     this.handleFaves()
+    // }
+    //
+    // handleFoodUpdate(food, arrayIndex, currentArray, entry_id){
+    //     this.setState({
+    //         currentArray: currentArray
+    //     })
+    //     fetch(`http://localhost:3000/foods/${entry_id}`, {
+    //         body: JSON.stringify(food),
+    //         method: 'PUT',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, */*',
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //     .then( updatedFood => updatedFood.json())
+    //     .then(jData => {
+    //         console.log("this is jData", jData);
+    //         this.removeFromArray(currentArray, arrayIndex);
+    //         this.updateFoodArray(jData, 'currentFoods');
+    //         })
+    //     .catch(err => console.log('this is error from handleUpdate', err));
+    //     this.handleFaves()
+    // }
+    //
+    // handleCoffeeUpdate(coffee, arrayIndex, currentArray, entry_id){
+    //     this.setState({
+    //         currentArray: currentArray
+    //     })
+    //     fetch(`http://localhost:3000/coffees/${entry_id}`, {
+    //         body: JSON.stringify(coffee),
+    //         method: 'PUT',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, */*',
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //     .then( updatedCoffee => updatedCoffee.json())
+    //     .then(jData => {
+    //         console.log("this is jData", jData);
+    //         this.removeFromArray(currentArray, arrayIndex);
+    //         this.updateFoodArray(jData, 'currentCoffees');
+    //         })
+    //     .catch(err => console.log('this is error from handleUpdate', err));
+    //     this.handleFaves()
+    // }
+    //
+    // handleWineUpdate(wine, arrayIndex, currentArray, entry_id){
+    //     this.setState({
+    //         currentArray: currentArray
+    //     })
+    //     fetch(`http://localhost:3000/wines/${entry_id}`, {
+    //         body: JSON.stringify(wine),
+    //         method: 'PUT',
+    //         headers: {
+    //             'Accept': 'application/json, text/plain, */*',
+    //             'Content-Type': 'application/json'
+    //         }
+    //     })
+    //     .then( updatedWine => updatedWine.json())
+    //     .then(jData => {
+    //         console.log("this is jData", jData);
+    //         this.removeFromArray(currentArray, arrayIndex);
+    //         this.updateFoodArray(jData, 'currentWines');
+    //         })
+    //     .catch(err => console.log('this is error from handleUpdate', err));
+    //     this.handleFaves()
+    // }
+    //
+    // removeFromArray(array, arrayIndex){
+    //     console.log(arrayIndex);
+    //     console.log("this is array:", array);
+    // this.setState(prevState => {
+    //     console.log("this is prevState:", prevState.currentArray);
+    //     prevState.currentArray.splice(arrayIndex, 1)
+    //     return {
+    //         [array]: prevState.currentArray
+    //         }
+    //     })
+    // }
+
+    //=====================
+    //HEROKU UPDATE METHODS
+    //=====================
 
     handleBeerUpdate(beer, arrayIndex, currentArray, entry_id){
         console.log("this is beer:", beer);
         this.setState({
             currentArray: currentArray
         })
-        fetch(`http://localhost:3000/beers/${entry_id}`, {
+        fetch(`https://flavorbase-api.herokuapp.com/beers/${entry_id}`, {
             body: JSON.stringify(beer),
             method: 'PUT',
             headers: {
@@ -239,7 +404,7 @@ class App extends Component {
         this.setState({
             currentArray: currentArray
         })
-        fetch(`http://localhost:3000/foods/${entry_id}`, {
+        fetch(`https://flavorbase-api.herokuapp.com/foods/${entry_id}`, {
             body: JSON.stringify(food),
             method: 'PUT',
             headers: {
@@ -261,7 +426,7 @@ class App extends Component {
         this.setState({
             currentArray: currentArray
         })
-        fetch(`http://localhost:3000/coffees/${entry_id}`, {
+        fetch(`https://flavorbase-api.herokuapp.com/coffees/${entry_id}`, {
             body: JSON.stringify(coffee),
             method: 'PUT',
             headers: {
@@ -283,7 +448,7 @@ class App extends Component {
         this.setState({
             currentArray: currentArray
         })
-        fetch(`http://localhost:3000/wines/${entry_id}`, {
+        fetch(`https://flavorbase-api.herokuapp.com/wines/${entry_id}`, {
             body: JSON.stringify(wine),
             method: 'PUT',
             headers: {
@@ -316,12 +481,72 @@ class App extends Component {
     //===================
     // DELETE METHODS
     // ==================
+    // handleBeerDelete(beerId, arrayIndex, currentArray){
+    //     this.setState({
+    //         currentArray: currentArray
+    //     })
+    //     console.log('this is delete', beerId, arrayIndex, currentArray);
+    //     fetch(`http://localhost:3000/beers/${beerId}`, {
+    //         method: 'DELETE'
+    //     })
+    //     .then(data => {
+    //         console.log("It's been deleted, trust me");
+    //         this.removeFromArray(currentArray, arrayIndex)
+    //     }).catch( err => console.log('this is error from handleDelete:', err))
+    //     //update state but only after we set up a delete route
+    // }
+    //
+    // handleFoodDelete(foodId, arrayIndex, currentArray){
+    //     this.setState({
+    //         currentArray: currentArray
+    //     })
+    //     console.log('this is delete', foodId, arrayIndex, currentArray);
+    //     fetch(`http://localhost:3000/foods/${foodId}`, {
+    //         method: 'DELETE'
+    //     })
+    //     .then(data => {
+    //         console.log("It's been deleted, trust me");
+    //         this.removeFromArray(currentArray, arrayIndex)
+    //     }).catch( err => console.log('this is error from handleDelete:', err))
+    // }
+    //
+    // handleCoffeeDelete(coffeeId, arrayIndex, currentArray){
+    //     this.setState({
+    //         currentArray: currentArray
+    //     })
+    //     console.log('this is delete', coffeeId, arrayIndex, currentArray);
+    //     fetch(`http://localhost:3000/coffees/${coffeeId}`, {
+    //         method: 'DELETE'
+    //     })
+    //     .then(data => {
+    //         console.log("It's been deleted, trust me");
+    //         this.removeFromArray(currentArray, arrayIndex)
+    //     }).catch( err => console.log('this is error from handleDelete:', err))
+    // }
+    //
+    // handleWineDelete(wineId, arrayIndex, currentArray){
+    //     this.setState({
+    //         currentArray: currentArray
+    //     })
+    //     console.log('this is wine delete', wineId, arrayIndex, currentArray);
+    //     fetch(`http://localhost:3000/wines/${wineId}`, {
+    //         method: 'DELETE'
+    //     })
+    //     .then(data => {
+    //         console.log("It's been deleted, trust me");
+    //         this.removeFromArray(currentArray, arrayIndex)
+    //     }).catch( err => console.log('this is error from handleDelete:', err))
+    // }
+
+    //======================
+    // HEROKU DELETE METHODS
+    // =====================
     handleBeerDelete(beerId, arrayIndex, currentArray){
         this.setState({
             currentArray: currentArray
         })
         console.log('this is delete', beerId, arrayIndex, currentArray);
-        fetch(`http://localhost:3000/beers/${beerId}`, {
+        fetch(`https://flavorbase-api.herokuapp.com/beers/${beerId}`, {
             method: 'DELETE'
         })
         .then(data => {
@@ -336,7 +561,7 @@ class App extends Component {
             currentArray: currentArray
         })
         console.log('this is delete', foodId, arrayIndex, currentArray);
-        fetch(`http://localhost:3000/foods/${foodId}`, {
+        fetch(`https://flavorbase-api.herokuapp.com/foods/${foodId}`, {
             method: 'DELETE'
         })
         .then(data => {
@@ -350,7 +575,7 @@ class App extends Component {
             currentArray: currentArray
         })
         console.log('this is delete', coffeeId, arrayIndex, currentArray);
-        fetch(`http://localhost:3000/coffees/${coffeeId}`, {
+        fetch(`https://flavorbase-api.herokuapp.com/coffees/${coffeeId}`, {
             method: 'DELETE'
         })
         .then(data => {
@@ -364,7 +589,7 @@ class App extends Component {
             currentArray: currentArray
         })
         console.log('this is wine delete', wineId, arrayIndex, currentArray);
-        fetch(`http://localhost:3000/wines/${wineId}`, {
+        fetch(`https://flavorbase-api.herokuapp.com/wines/${wineId}`, {
             method: 'DELETE'
         })
         .then(data => {
@@ -372,6 +597,7 @@ class App extends Component {
             this.removeFromArray(currentArray, arrayIndex)
         }).catch( err => console.log('this is error from handleDelete:', err))
     }
+
 
     //====================
     // ADDITIONAL METHODS
@@ -433,8 +659,81 @@ class App extends Component {
     //===============
     // FETCH METHODS
     //===============
+    // fetchBeers() {
+    //     fetch('http://localhost:3000/beers')
+    //         .then(data => data.json())
+    //     .then(jData => {
+    //       // console.log('jData',jData);
+    //         jData.forEach((entry, index) => {
+    //             if (entry.favorite === "t"){
+    //                   this.handleFavorites(entry)
+    //             }
+    //         })
+    //         this.setState({
+    //             currentBeers: jData
+    //         })
+    //     })
+    //
+    // }
+    //
+    // fetchCoffees() {
+    //     fetch('http://localhost:3000/coffees')
+    //         .then(data => data.json())
+    //     .then(jData => {
+    //       jData.forEach((entry, index) => {
+    //           if (entry.favorite === "t"){
+    //                 this.handleFavorites(entry)
+    //           }
+    //       })
+    //         this.setState({
+    //             currentCoffees: jData
+    //         })
+    //         console.log(jData);
+    //     })
+    // }
+    //
+    // fetchFoods() {
+    //     fetch('http://localhost:3000/foods')
+    //         .then(data => data.json())
+    //     .then(jData => {
+    //       jData.forEach((entry, index) => {
+    //           if (entry.favorite === "t"){
+    //                 this.handleFavorites(entry)
+    //           }
+    //       })
+    //         this.setState({
+    //             currentFoods: jData
+    //         })
+    //     })
+    // }
+    //
+    // fetchWines() {
+    //     fetch('http://localhost:3000/wines')
+    //         .then(data => data.json())
+    //     .then(jData => {
+    //       jData.forEach((entry, index) => {
+    //           if (entry.favorite === "t"){
+    //                 this.handleFavorites(entry)
+    //           }
+    //       })
+    //         this.setState({
+    //             currentWines: jData
+    //         })
+    //     })
+    // }
+    //
+    // componentDidMount(){
+    //     this.fetchBeers()
+    //     this.fetchFoods()
+    //     this.fetchCoffees()
+    //     this.fetchWines()
+    // }
+
+    //=====================
+    // HEROKU FETCH METHODS
+    //=====================
     fetchBeers() {
-        fetch('http://localhost:3000/beers')
+        fetch('https://flavorbase-api.herokuapp.com/beers')
             .then(data => data.json())
         .then(jData => {
           // console.log('jData',jData);
@@ -451,7 +750,7 @@ class App extends Component {
     }
 
     fetchCoffees() {
-        fetch('http://localhost:3000/coffees')
+        fetch('https://flavorbase-api.herokuapp.com/coffees')
             .then(data => data.json())
         .then(jData => {
           jData.forEach((entry, index) => {
@@ -467,7 +766,7 @@ class App extends Component {
     }
 
     fetchFoods() {
-        fetch('http://localhost:3000/foods')
+        fetch('https://flavorbase-api.herokuapp.com/foods')
             .then(data => data.json())
         .then(jData => {
           jData.forEach((entry, index) => {
@@ -482,7 +781,7 @@ class App extends Component {
     }
 
     fetchWines() {
-        fetch('http://localhost:3000/wines')
+        fetch('https://flavorbase-api.herokuapp.com/wines')
             .then(data => data.json())
         .then(jData => {
           jData.forEach((entry, index) => {
