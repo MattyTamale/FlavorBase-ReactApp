@@ -110,6 +110,7 @@ class Form extends Component{
       return (
       <div className="catButtons">
               <h3>- Add Your Entry -</h3>
+              <hr className="my-4" />
               <div className="btn-group btn-group-lg">
               <button
                   type="button" className="btn btn-outline-dark"
@@ -130,6 +131,8 @@ class Form extends Component{
             <div className="form" onSubmit={this.handleSubmit}>
                    <form >
                         <div className="form-group">
+                        <label>
+                        When It Was Enjoyed:</label>
                         <input
                           className="form-control"
                           id='date'
@@ -140,6 +143,8 @@ class Form extends Component{
                           />
                           </div>
                         <div className="form-group">
+                        <label>
+                        Some Basic Info:</label>
                         <input
                             className="form-control"
                             id='brand'
@@ -150,6 +155,8 @@ class Form extends Component{
                         />
                         </div>
                         <div className="form-group">
+                        <label>
+                        Where It Is From?:</label>
                         <input
                             className="form-control"
                             id='origin'
@@ -160,6 +167,8 @@ class Form extends Component{
                         />
                         </div>
                         <div className="form-group">
+                        <label>
+                        Where Did You Have It?:</label>
                         <input
                           className="form-control"
                           id='location'
@@ -184,7 +193,8 @@ class Form extends Component{
                         />
                         </div>
                         <div className="form-group form-check">
-                        <label>Favorite:</label><br/>
+                        <label>Is It A Favorite?:</label>
+                        <br/>
                         <input
                           className="form-check-input"
                           onClick={this.handleCheck}
@@ -195,6 +205,8 @@ class Form extends Component{
                         <br />
                         </div>
                         <div className="form-group">
+                        <label>
+                        Notable Flavors?:</label>
                         <input
                           className="form-control"
                           id='flavors'
@@ -204,7 +216,7 @@ class Form extends Component{
                           value={this.state.flavors}
                         />
                         </div>
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-info">Submit</button>
                    </form>
                 </div>
               :

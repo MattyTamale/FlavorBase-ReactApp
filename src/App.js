@@ -809,7 +809,8 @@ class App extends Component {
                 <div className="container">
                 <h1 className="display-4"> FlavorBase </h1>
                 <hr className="my-4" />
-                <p className="lead">Create and explore this wonderful comprendium of different flavors.</p>
+                <p className="lead">Create and explore this wonderful compendium of different flavors.</p>
+                <h5 className="lead">Each entry will detail when and where the item was enjoyed as well as notable flavors worth sharing.</h5>
                 </div>
             </header>
             <Form

@@ -37,7 +37,7 @@ class Favorites extends Component{
     render () {
       return (
         <div className="fav-container" >
-            <button className="btn btn-primary btn btn-block" onClick={this.toggleFav}>Favorites: {this.props.faves}</button>
+            <button className="btn btn-info btn btn-block" onClick={this.toggleFav}>Favorites: {this.props.faves}</button>
             <div className="container">
                 <div className="favorites">
               {this.state.showFaves
