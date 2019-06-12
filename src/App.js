@@ -253,7 +253,7 @@ class App extends Component {
         .then(jData => {
             console.log("this is jData", jData);
             this.removeFromArray(currentArray, arrayIndex);
-            this.updateFoodArray(jData, 'currentCoffees');
+            this.updateCoffeeArray(jData, 'currentCoffees');
             })
         .catch(err => console.log('this is error from handleUpdate', err));
         this.handleFaves()
