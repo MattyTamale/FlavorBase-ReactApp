@@ -30,6 +30,7 @@ class Form extends Component{
         }
          // this.props.handleCreate(this.state)
          this.hideForm();
+         this.clearForm();
     }
 
     setArray = () => {
