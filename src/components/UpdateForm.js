@@ -149,21 +149,11 @@ class UpdateForm extends Component{
                               max="10"
                               min="1"
                               id='rating'
-                              type='number'
+                              type='text'
                               placeholder="Rating: 1-10"
                               onChange={this.handleChange}
                               value={this.state.rating}
                             />
-                        <h6 className="form-check-label">Favorite:</h6>
-                        <input
-                          className="form-check-input"
-                          onClick={this.handleCheck}
-                          id='favorite'
-                          type='checkbox'
-                          placeholder="Favorite"
-                          value={this.state.favorite}
-                        />
-                        <br />
                         <input
                           className="form-control"
                           id='flavors'
