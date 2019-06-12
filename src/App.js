@@ -253,7 +253,7 @@ class App extends Component {
         .then(jData => {
             console.log("this is jData", jData);
             this.removeFromArray(currentArray, arrayIndex);
-            this.updateFoodArray(jData, 'currentCoffees');
+            this.updateCoffeeArray(jData, 'currentCoffees');
             })
         .catch(err => console.log('this is error from handleUpdate', err));
         this.handleFaves()
@@ -490,7 +490,7 @@ class App extends Component {
                 <div className="container">
                 <h1 className="display-4"> FlavorBase </h1>
                 <hr className="my-4" />
-                <p class="lead">Create and explore this wonderful comprendium of different flavors.</p>
+                <p className="lead">Create and explore this wonderful comprendium of different flavors.</p>
                 </div>
             </header>
             <Form
